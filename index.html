@@ -1,0 +1,1170 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#c4e5ff">
+<title>A Little Note For You ♡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --blue: #c4e5ff;
+    --blue-dark: #6cadd8;
+    --pink: #ffe0ec;
+    --pink-dark: #e69bb9;
+    --text: #4b5563;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: "DM Sans", sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 10% 10%, #fff 0, transparent 28%),
+        radial-gradient(circle at 90% 35%, #ffe9f1 0, transparent 28%),
+        linear-gradient(145deg, #d9efff, #fff0f5 55%, #e8f5ff);
+}
+
+button {
+    font-family: inherit;
+}
+
+.background-decoration {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: .55;
+    animation: floatBlob 9s ease-in-out infinite alternate;
+}
+
+.blob-one {
+    width: 230px;
+    height: 230px;
+    background: #c3e5ff;
+    top: 8%;
+    left: -90px;
+}
+
+.blob-two {
+    width: 190px;
+    height: 190px;
+    background: #ffd9e8;
+    right: -60px;
+    top: 45%;
+    animation-delay: 2s;
+}
+
+.blob-three {
+    width: 160px;
+    height: 160px;
+    background: #fff0c9;
+    left: 55%;
+    bottom: -60px;
+    animation-delay: 4s;
+}
+
+@keyframes floatBlob {
+    from { transform: translateY(0) rotate(0); }
+    to { transform: translateY(-25px) rotate(12deg); }
+}
+
+/* HEADER */
+
+header {
+    width: min(1080px, 92%);
+    margin: auto;
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 700;
+    color: #547d9a;
+}
+
+.brand-icon {
+    width: 37px;
+    height: 37px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: #ffffffb8;
+    box-shadow: 0 5px 18px #9abbd522;
+    font-size: 21px;
+}
+
+.music-button {
+    border: 1px solid #ffffffc9;
+    background: #ffffffa8;
+    color: #567b96;
+    border-radius: 30px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    transition: .25s;
+}
+
+.music-button:hover {
+    background: white;
+    transform: translateY(-2px);
+}
+
+/* HERO */
+
+.hero {
+    width: min(760px, 90%);
+    margin: 45px auto 15px;
+    text-align: center;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 15px;
+    border: 1px solid #ffffffc9;
+    border-radius: 30px;
+    background: #ffffff80;
+    color: #668ca7;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin: 20px 0 13px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(34px, 6vw, 57px);
+    line-height: 1.2;
+    color: #496e89;
+    letter-spacing: -1.5px;
+}
+
+.hero h1 span {
+    color: #e69bb9;
+    font-style: italic;
+}
+
+.hero p {
+    max-width: 430px;
+    margin: auto;
+    font-size: 14px;
+    line-height: 1.9;
+    color: #7b8995;
+}
+
+/* SECTION */
+
+.cards-section {
+    width: min(650px, 92%);
+    margin: 42px auto 75px;
+    text-align: center;
+}
+
+.section-label {
+    color: #8198a9;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+.section-heading {
+    margin-top: 8px;
+    font-family: "Playfair Display", serif;
+    color: #597a93;
+    font-size: 25px;
+}
+
+.section-hint {
+    margin-top: 8px;
+    color: #91a0ad;
+    font-size: 12px;
+}
+
+/* KARTU BERTUMPUK */
+
+.card-stack {
+    position: relative;
+    width: min(390px, 100%);
+    height: 440px;
+    margin: 30px auto 0;
+}
+
+.note-card {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 355px;
+    padding: 28px;
+    border: 1px solid #ffffffd9;
+    border-radius: 25px;
+    box-shadow: 0 16px 45px #7a9db21a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+    overflow: hidden;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: box-shadow .25s ease;
+}
+
+.note-card:hover {
+    box-shadow: 0 20px 50px #7a9db233;
+}
+
+.note-card:focus-visible {
+    outline: 3px solid #78acd1;
+    outline-offset: 4px;
+}
+
+.note-card:nth-child(1) {
+    z-index: 5;
+    top: 0;
+    background: #fffdf9;
+    transform: rotate(-3deg);
+}
+
+.note-card:nth-child(2) {
+    z-index: 4;
+    top: 12px;
+    background: #fff0f5;
+    transform: rotate(3deg) scale(.97);
+}
+
+.note-card:nth-child(3) {
+    z-index: 3;
+    top: 24px;
+    background: #edf7ff;
+    transform: rotate(-4deg) scale(.94);
+}
+
+.note-card:nth-child(4) {
+    z-index: 2;
+    top: 36px;
+    background: #fff8e9;
+    transform: rotate(4deg) scale(.91);
+}
+
+.note-card:nth-child(5) {
+    z-index: 1;
+    top: 48px;
+    background: #f4efff;
+    transform: rotate(-2deg) scale(.88);
+}
+
+.card-icon {
+    width: 70px;
+    height: 70px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 20px;
+    border-radius: 23px;
+    background: #ffffffb8;
+    box-shadow: 0 8px 22px #9db9ca1a;
+    font-size: 32px;
+}
+
+.card-label {
+    color: #91a1af;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.card-title {
+    margin: 15px 0 12px;
+    font-family: "Playfair Display", serif;
+    font-size: 29px;
+    color: #5b7890;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.card-text {
+    max-width: 270px;
+    font-size: 13px;
+    line-height: 1.9;
+    color: #82909c;
+    overflow-wrap: anywhere;
+}
+
+.card-footer {
+    margin-top: 22px;
+    color: #d99ab4;
+    font-family: "Caveat", cursive;
+    font-size: 20px;
+}
+
+.tap-hint {
+    position: absolute;
+    top: 375px;
+    left: 0;
+    width: 100%;
+    color: #8299aa;
+    font-size: 12px;
+}
+
+/* PESAN UTAMA */
+
+.message-section {
+    width: min(620px, 90%);
+    margin: 0 auto 80px;
+}
+
+.message-box {
+    padding: 28px;
+    border: 1px solid #ffffffd6;
+    border-radius: 25px;
+    background: #ffffffa6;
+    box-shadow: 0 15px 45px #8caabe1c;
+    text-align: center;
+    backdrop-filter: blur(12px);
+}
+
+.small-label {
+    color: #c78fa7;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.message-box h2 {
+    margin: 12px 0;
+    font-family: "Playfair Display", serif;
+    font-size: 25px;
+    color: #587b95;
+}
+
+.message-box p {
+    color: #7e8d9a;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.message-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-button {
+    padding: 11px 17px;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    background: #e8f4ff;
+    color: #5d85a3;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.action-button:hover {
+    transform: translateY(-2px);
+    background: #d8ecff;
+}
+
+.action-button.pink {
+    background: #ffe6ef;
+    color: #bd7796;
+}
+
+/* GALERI */
+
+.gallery-section {
+    width: min(850px, 90%);
+    margin: 0 auto 80px;
+    text-align: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+    margin-top: 28px;
+}
+
+.gallery-item {
+    min-height: 190px;
+    padding: 12px;
+    border: 1px solid #ffffffd6;
+    border-radius: 20px;
+    background: #ffffff9e;
+    box-shadow: 0 12px 30px #9ab2c31c;
+    cursor: pointer;
+    text-align: left;
+    transition: .25s;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    background: #ffffffd9;
+}
+
+.gallery-image {
+    min-height: 125px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: linear-gradient(145deg, #d9efff, #ffe5ee);
+    font-size: 37px;
+}
+
+.gallery-item:nth-child(2) .gallery-image {
+    background: linear-gradient(145deg, #fff0cf, #ffe3ec);
+}
+
+.gallery-item:nth-child(3) .gallery-image {
+    background: linear-gradient(145deg, #e7e0ff, #dff2ff);
+}
+
+.gallery-caption {
+    display: block;
+    margin: 11px 4px 3px;
+    color: #70899d;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 30px 15px 38px;
+    border-top: 1px solid #ffffff8c;
+    text-align: center;
+    color: #92a0ad;
+    font-size: 11px;
+    line-height: 2;
+}
+
+.footer-heart {
+    color: #e49bb7;
+}
+
+/* POP-UP SURAT */
+
+.card-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(83, 110, 135, .32);
+    backdrop-filter: blur(8px);
+}
+
+.card-popup.show {
+    display: flex;
+    animation: popupFade .25s ease;
+}
+
+.popup-paper {
+    position: relative;
+    width: min(420px, 100%);
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 38px 27px;
+    border: 1px solid white;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #fffdf9, #fff0f6);
+    box-shadow: 0 25px 80px #45657b35;
+    text-align: center;
+    animation: paperOpen .35s ease;
+}
+
+.popup-icon {
+    font-size: 43px;
+    margin-bottom: 17px;
+}
+
+.popup-label {
+    color: #d49ab3;
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.popup-title {
+    margin: 14px 0;
+    color: #587b95;
+    font: 600 29px "Playfair Display", serif;
+}
+
+.popup-text {
+    color: #7b8995;
+    font-size: 14px;
+    line-height: 2;
+    white-space: pre-line;
+}
+
+.popup-signature {
+    margin-top: 23px;
+    color: #d78fac;
+    font: 24px "Caveat", cursive;
+}
+
+.popup-close {
+    margin-top: 24px;
+    padding: 11px 22px;
+    border: 0;
+    border-radius: 30px;
+    background: #dcefff;
+    color: #587b95;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.popup-close:hover {
+    background: #c8e5ff;
+}
+
+@keyframes popupFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes paperOpen {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(.94);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* EFEK HATI DAN TOAST */
+
+.floating-heart {
+    position: fixed;
+    z-index: 120;
+    pointer-events: none;
+    font-size: 18px;
+    animation: heartFloat 1.3s ease-out forwards;
+}
+
+@keyframes heartFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(.5);
+    }
+    20% { opacity: 1; }
+    100% {
+        opacity: 0;
+        transform: translateY(-110px) scale(1.5) rotate(25deg);
+    }
+}
+
+.toast {
+    position: fixed;
+    z-index: 150;
+    left: 50%;
+    bottom: 25px;
+    width: max-content;
+    max-width: 90%;
+    padding: 12px 18px;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    background: #ffffffed;
+    box-shadow: 0 10px 30px #6e91a522;
+    color: #63849d;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 15px);
+    transition: .25s;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+@media (max-width: 560px) {
+    header { padding-top: 18px; }
+
+    .hero { margin-top: 30px; }
+
+    .hero h1 { letter-spacing: -.8px; }
+
+    .cards-section { margin-top: 35px; }
+
+    .card-stack { height: 415px; }
+
+    .note-card {
+        height: 335px;
+        padding: 22px;
+        border-radius: 22px;
+    }
+
+    .card-title { font-size: 25px; }
+
+    .card-text { font-size: 12px; }
+
+    .tap-hint { top: 350px; }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .gallery-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-height: auto;
+    }
+
+    .gallery-image {
+        width: 95px;
+        min-width: 95px;
+        min-height: 80px;
+    }
+
+    .gallery-caption {
+        margin: 0;
+        font-size: 13px;
+    }
+
+    .message-box { padding: 23px 18px; }
+
+    .popup-paper { padding: 32px 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background-decoration" aria-hidden="true">
+    <div class="blob blob-one"></div>
+    <div class="blob blob-two"></div>
+    <div class="blob blob-three"></div>
+</div>
+
+<header>
+    <div class="brand">
+        <div class="brand-icon">♡</div>
+        <span>Little Messages</span>
+    </div>
+
+    <button class="music-button" id="musicButton" type="button">
+        ♫ Putar musik
+    </button>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-tag">☁ A little corner of happiness</div>
+
+        <h1>Untuk kamu, yang <span>istimewa.</span></h1>
+
+        <p>
+            Ada beberapa pesan kecil yang ingin disampaikan.
+            Klik kartu di bawah ini untuk membuka surat kecil
+            yang khusus disiapkan untukmu. ♡
+        </p>
+    </section>
+
+    <section class="cards-section">
+        <div class="section-label">Something for you</div>
+        <h2 class="section-heading">Little things, big feelings.</h2>
+        <p class="section-hint">Pilih kartu untuk membuka pesan kecil ♡</p>
+
+        <div class="card-stack">
+
+            <article class="note-card" tabindex="0" role="button"
+                aria-label="Buka pesan Take it easy">
+                <div class="card-icon">☁️</div>
+                <div class="card-label">MESSAGE NO. 01</div>
+                <h3 class="card-title">Take it easy.</h3>
+                <p class="card-text">
+                    Kamu tidak harus menyelesaikan semuanya hari ini.
+                    Beri dirimu waktu untuk bernapas.
+                </p>
+                <div class="card-footer">one step at a time ♡</div>
+            </article>
+
+            <article class="note-card" tabindex="0" role="button"
+                aria-label="Buka pesan Kamu berarti">
+                <div class="card-icon">🌷</div>
+                <div class="card-label">MESSAGE NO. 02</div>
+                <h3 class="card-title">Kamu berarti.</h3>
+                <p class="card-text">
+                    Kehadiranmu punya arti, bahkan saat kamu
+                    merasa tidak melakukan sesuatu yang besar.
+                </p>
+                <div class="card-footer">you are appreciated ♡</div>
+            </article>
+
+            <article class="note-card" tabindex="0" role="button"
+                aria-label="Buka pesan Keep growing">
+                <div class="card-icon">🦋</div>
+                <div class="card-label">MESSAGE NO. 03</div>
+                <h3 class="card-title">Keep growing.</h3>
+                <p class="card-text">
+                    Tidak apa-apa jika prosesmu berbeda.
+                    Setiap orang punya waktunya sendiri.
+                </p>
+                <div class="card-footer">bloom in your own time ♡</div>
+            </article>
+
+            <article class="note-card" tabindex="0" role="button"
+                aria-label="Buka pesan A wish for you">
+                <div class="card-icon">🎀</div>
+                <div class="card-label">MESSAGE NO. 04</div>
+                <h3 class="card-title">For you.</h3>
+                <p class="card-text">
+                    Semoga hari-harimu dipenuhi hal sederhana
+                    yang membuatmu tersenyum.
+                </p>
+                <div class="card-footer">a little sunshine ♡</div>
+            </article>
+
+            <article class="note-card" tabindex="0" role="button"
+                aria-label="Buka surat pesan kecil">
+                <div class="card-icon">💌</div>
+                <div class="card-label">MESSAGE NO. 05</div>
+                <h3 class="card-title">Pesan kecil ♡</h3>
+                <p class="card-text">
+                    Ada sebuah surat kecil yang ingin kamu baca.
+                    Klik untuk membukanya.
+                </p>
+                <div class="card-footer">made with care ♡</div>
+            </article>
+
+            <div class="tap-hint">✧ Tap a card to open the letter ✧</div>
+        </div>
+    </section>
+
+    <section class="message-section">
+        <div class="message-box">
+            <div class="small-label">A NOTE FOR TODAY</div>
+            <h2 id="messageTitle">Semoga harimu menyenangkan.</h2>
+            <p id="messageText">
+                Semoga selalu ada alasan kecil untuk bersyukur,
+                hal baik untuk dikenang, dan harapan untuk esok hari.
+            </p>
+
+            <div class="message-actions">
+                <button class="action-button" id="nextMessage" type="button">
+                    Pesan lainnya ✨
+                </button>
+
+                <button class="action-button pink" id="heartButton" type="button">
+                    Kirim hati ♡
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="section-label">Little gallery</div>
+        <h2 class="section-heading">A few lovely things.</h2>
+        <p class="section-hint">Pilih salah satu untuk membaca pesan kecil.</p>
+
+        <div class="gallery-grid">
+            <button class="gallery-item" type="button"
+                data-title="A little sunshine"
+                data-message="Semoga kamu menemukan cahaya bahkan di hari yang terasa biasa saja. Nikmati hal-hal sederhana yang membuatmu bahagia.">
+                <span class="gallery-image">🌤️</span>
+                <span class="gallery-caption">A little sunshine</span>
+            </button>
+
+            <button class="gallery-item" type="button"
+                data-title="Soft moments"
+                data-message="Jangan lupa menikmati hal-hal sederhana: udara pagi, langit sore, dan waktu bersama orang-orang tersayang.">
+                <span class="gallery-image">🌷</span>
+                <span class="gallery-caption">Soft moments</span>
+            </button>
+
+            <button class="gallery-item" type="button"
+                data-title="A gentle reminder"
+                data-message="Kamu boleh beristirahat. Berhenti sejenak bukan berarti kamu berhenti bertumbuh. Berikan dirimu waktu.">
+                <span class="gallery-image">🦋</span>
+                <span class="gallery-caption">A gentle reminder</span>
+            </button>
+        </div>
+    </section>
+</main>
+
+<footer>
+    Made with <span class="footer-heart">♥</span> and a little bit of magic.
+    <br>
+    A Little Note For You ♡
+</footer>
+
+<!-- POP-UP SURAT -->
+
+<div class="card-popup" id="cardPopup"
+    role="dialog" aria-modal="true"
+    aria-labelledby="popupTitle">
+
+    <div class="popup-paper">
+        <div class="popup-icon" id="popupIcon">💌</div>
+
+        <div class="popup-label">A LITTLE NOTE FOR YOU</div>
+
+        <h2 class="popup-title" id="popupTitle">Pesan kecil ♡</h2>
+
+        <p class="popup-text" id="popupText"></p>
+
+        <div class="popup-signature">with love, ♡</div>
+
+        <button class="popup-close" id="popupClose" type="button">
+            Tutup surat ✧
+        </button>
+    </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<audio id="bgMusic" src="./musik.mp3" loop preload="auto"></audio>
+
+<script>
+/* =========================================
+   ISI SURAT UNTUK SETIAP KARTU
+========================================= */
+
+const cardMessages = [
+    {
+        icon: "☁️",
+        title: "Take it easy.",
+        text: `Hai, kamu. Jangan terlalu keras pada dirimu sendiri, ya.
+
+Tidak semua hal harus selesai hari ini. Kamu boleh istirahat, mengambil napas, dan mencoba lagi besok.
+
+Pelan-pelan saja. Satu langkah kecil pun tetap berarti. ♡`
+    },
+
+    {
+        icon: "🌷",
+        title: "Kamu berarti.",
+        text: `Mungkin kamu tidak selalu menyadarinya, tetapi kehadiranmu bisa membawa kebahagiaan bagi orang lain.
+
+Jangan merasa harus menjadi sempurna untuk bisa dihargai. Jadilah dirimu sendiri dan teruslah bertumbuh.
+
+Kamu berharga, apa adanya. ♡`
+    },
+
+    {
+        icon: "🦋",
+        title: "Keep growing.",
+        text: `Tidak apa-apa jika perjalananmu berbeda dari orang lain.
+
+Kamu tidak harus selalu cepat. Nikmati prosesnya, pelajari hal baru, dan jangan lupa menghargai kemajuan kecilmu.
+
+Semoga kamu selalu punya keberanian untuk terus mencoba. ♡`
+    },
+
+    {
+        icon: "🎀",
+        title: "A wish for you.",
+        text: `Semoga hari-harimu dipenuhi hal-hal baik yang sederhana.
+
+Semoga kamu menemukan alasan untuk tersenyum, orang-orang yang tulus, dan ketenangan dalam menjalani hari.
+
+Semoga banyak kebaikan datang kepadamu. ♡`
+    },
+
+    {
+        icon: "💌",
+        title: "Pesan kecil ♡",
+        text: `Kalau kamu sedang membaca ini, semoga kamu tahu bahwa masih banyak hal indah yang bisa kamu temukan.
+
+Jangan lupa tersenyum, jaga dirimu baik-baik, dan tetap punya harapan untuk hari esok.
+
+Ini cuma pesan kecil, tetapi semoga bisa membuat harimu sedikit lebih indah. ♡`
+    }
+];
+
+/* =========================================
+   MEMBUKA SURAT KARTU
+   Setiap kartu hanya membuka surat miliknya.
+========================================= */
+
+const cards = document.querySelectorAll(".note-card");
+const cardPopup = document.getElementById("cardPopup");
+const popupIcon = document.getElementById("popupIcon");
+const popupTitle = document.getElementById("popupTitle");
+const popupText = document.getElementById("popupText");
+const popupClose = document.getElementById("popupClose");
+
+let lastFocusedCard = null;
+
+function openCardMessage(card, index) {
+    const message = cardMessages[index];
+
+    if (!message) return;
+
+    lastFocusedCard = card;
+
+    popupIcon.textContent = message.icon;
+    popupTitle.textContent = message.title;
+    popupText.textContent = message.text;
+
+    cardPopup.classList.add("show");
+    document.body.style.overflow = "hidden";
+
+    createHearts(
+        window.innerWidth / 2,
+        window.innerHeight / 2,
+        5
+    );
+
+    popupClose.focus();
+}
+
+cards.forEach((card, index) => {
+    card.addEventListener("click", () => {
+        openCardMessage(card, index);
+    });
+
+    card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openCardMessage(card, index);
+        }
+    });
+});
+
+function closeCardMessage() {
+    cardPopup.classList.remove("show");
+    document.body.style.overflow = "";
+
+    if (lastFocusedCard) {
+        lastFocusedCard.focus();
+    }
+}
+
+popupClose.addEventListener("click", closeCardMessage);
+
+cardPopup.addEventListener("click", (event) => {
+    if (event.target === cardPopup) {
+        closeCardMessage();
+    }
+});
+
+document.addEventListener("keydown", (event) => {
+    if (
+        event.key === "Escape" &&
+        cardPopup.classList.contains("show")
+    ) {
+        closeCardMessage();
+    }
+});
+
+/* =========================================
+   PESAN UTAMA
+========================================= */
+
+const dailyMessages = [
+    {
+        title: "Semoga harimu menyenangkan.",
+        text: "Semoga selalu ada alasan kecil untuk bersyukur, hal baik untuk dikenang, dan harapan untuk esok hari."
+    },
+    {
+        title: "Kamu sudah berusaha.",
+        text: "Apa pun hasilnya, jangan lupa menghargai usaha yang sudah kamu lakukan. Kamu masih punya kesempatan untuk belajar."
+    },
+    {
+        title: "Jangan lupa tersenyum.",
+        text: "Sisihkan sedikit waktu untuk hal-hal yang kamu sukai. Kamu juga layak menikmati hari dengan tenang."
+    },
+    {
+        title: "Satu hari, satu langkah.",
+        text: "Kamu tidak perlu mengetahui semua jawaban sekarang. Jalani yang ada di depanmu satu per satu."
+    },
+    {
+        title: "Semoga banyak kebaikan datang.",
+        text: "Semoga urusanmu dimudahkan, hatimu ditenangkan, dan langkahmu dipertemukan dengan hal-hal yang baik."
+    }
+];
+
+let dailyIndex = 0;
+
+const messageTitle = document.getElementById("messageTitle");
+const messageText = document.getElementById("messageText");
+
+document.getElementById("nextMessage").addEventListener("click", () => {
+    dailyIndex = (dailyIndex + 1) % dailyMessages.length;
+
+    const message = dailyMessages[dailyIndex];
+
+    messageTitle.textContent = message.title;
+    messageText.textContent = message.text;
+
+    showToast("Pesan baru untukmu ♡");
+});
+
+/* =========================================
+   GALERI
+========================================= */
+
+document.querySelectorAll(".gallery-item").forEach((item) => {
+    item.addEventListener("click", () => {
+        messageTitle.textContent = item.dataset.title;
+        messageText.textContent = item.dataset.message;
+
+        document.querySelector(".message-section").scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    });
+});
+
+/* =========================================
+   EFEK HATI
+========================================= */
+
+function createHearts(x, y, count = 5) {
+    const symbols = ["♡", "♥", "💕", "✧", "💗"];
+
+    for (let i = 0; i < count; i++) {
+        const heart = document.createElement("span");
+
+        heart.className = "floating-heart";
+        heart.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        heart.style.left =
+            (x + (Math.random() - 0.5) * 80) + "px";
+
+        heart.style.top =
+            (y + (Math.random() - 0.5) * 25) + "px";
+
+        heart.style.animationDelay =
+            (Math.random() * 0.25) + "s";
+
+        document.body.appendChild(heart);
+
+        heart.addEventListener("animationend", () => {
+            heart.remove();
+        });
+    }
+}
+
+document.getElementById("heartButton").addEventListener("click", () => {
+    createHearts(
+        window.innerWidth / 2,
+        window.innerHeight * 0.65,
+        12
+    );
+
+    showToast("Mengirim banyak hati untukmu! 💗");
+});
+
+/* =========================================
+   NOTIFIKASI
+========================================= */
+
+let toastTimeout;
+
+function showToast(text) {
+    const toast = document.getElementById("toast");
+
+    toast.textContent = text;
+    toast.classList.add("show");
+
+    clearTimeout(toastTimeout);
+
+    toastTimeout = setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2200);
+}
+
+/* =========================================
+   MUSIK LATAR
+========================================= */
+
+const bgMusic = document.getElementById("bgMusic");
+const musicButton = document.getElementById("musicButton");
+
+let musicPlaying = false;
+
+async function toggleMusic() {
+    if (musicPlaying) {
+        bgMusic.pause();
+        musicPlaying = false;
+        musicButton.textContent = "♫ Putar musik";
+        showToast("Musik dijeda");
+        return;
+    }
+
+    try {
+        await bgMusic.play();
+
+        musicPlaying = true;
+        musicButton.textContent = "♫ Musik menyala";
+        showToast("Musik mulai diputar ♡");
+    } catch (error) {
+        musicPlaying = false;
+        musicButton.textContent = "♫ Coba putar lagi";
+        showToast("Periksa file musik.mp3 kamu");
+    }
+}
+
+musicButton.addEventListener("click", toggleMusic);
+
+bgMusic.addEventListener("pause", () => {
+    musicPlaying = false;
+    musicButton.textContent = "♫ Putar musik";
+});
+
+bgMusic.addEventListener("play", () => {
+    musicPlaying = true;
+    musicButton.textContent = "♫ Musik menyala";
+});
+</script>
+
+</body>
+</html>
