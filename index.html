@@ -4,1166 +4,2039 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#c4e5ff">
+<meta name="theme-color" content="#fff8f3">
 <title>A Little Note For You ♡</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-    --blue: #c4e5ff;
-    --blue-dark: #6cadd8;
-    --pink: #ffe0ec;
-    --pink-dark: #e69bb9;
-    --text: #4b5563;
+  --cream: #fff8f3;
+  --pink: #f3d4d5;
+  --pink-dark: #d99da8;
+  --blue: #dcecf6;
+  --lavender: #e8e0f4;
+  --yellow: #f7e8b7;
+  --ink: #51464a;
+  --muted: #9a8589;
+  --white: rgba(255,255,255,.78);
+  --shadow: 0 16px 50px rgba(118, 85, 91, .10);
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
-    min-height: 100vh;
-    overflow-x: hidden;
-    font-family: "DM Sans", sans-serif;
-    color: var(--text);
-    background:
-        radial-gradient(circle at 10% 10%, #fff 0, transparent 28%),
-        radial-gradient(circle at 90% 35%, #ffe9f1 0, transparent 28%),
-        linear-gradient(145deg, #d9efff, #fff0f5 55%, #e8f5ff);
+  background:
+    radial-gradient(ellipse at 5% 5%, rgba(243,212,213,.45), transparent 30%),
+    radial-gradient(ellipse at 95% 22%, rgba(220,236,246,.65), transparent 28%),
+    radial-gradient(ellipse at 50% 65%, rgba(232,224,244,.30), transparent 35%),
+    var(--cream);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .18;
+  z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.15'/%3E%3C/svg%3E");
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
 }
 
 button {
-    font-family: inherit;
+  font: inherit;
 }
 
-.background-decoration {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: -1;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(2px);
-    opacity: .55;
-    animation: floatBlob 9s ease-in-out infinite alternate;
+::selection {
+  background: #f1d0d7;
+  color: #61464f;
 }
 
-.blob-one {
-    width: 230px;
-    height: 230px;
-    background: #c3e5ff;
-    top: 8%;
-    left: -90px;
+.container {
+  width: min(1100px, 90%);
+  margin: auto;
 }
 
-.blob-two {
-    width: 190px;
-    height: 190px;
-    background: #ffd9e8;
-    right: -60px;
-    top: 45%;
-    animation-delay: 2s;
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #b58c98;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
-.blob-three {
-    width: 160px;
-    height: 160px;
-    background: #fff0c9;
-    left: 55%;
-    bottom: -60px;
-    animation-delay: 4s;
+.eyebrow::before,
+.eyebrow::after {
+  content: "✳";
+  font-size: 11px;
+  color: #d6a7b1;
 }
 
-@keyframes floatBlob {
-    from { transform: translateY(0) rotate(0); }
-    to { transform: translateY(-25px) rotate(12deg); }
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
 }
 
-/* HEADER */
+.section-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
 
-header {
-    width: min(1080px, 92%);
-    margin: auto;
-    padding: 25px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
+.section-heading h2 {
+  font-size: clamp(29px, 5vw, 45px);
+  margin: 12px 0;
+  line-height: 1.2;
+}
+
+.section-heading h2 em {
+  color: #c58e9c;
+  font-weight: 400;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+  max-width: 470px;
+  margin: auto;
+}
+
+/* NAVIGATION */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,248,243,.76);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(210,180,183,.17);
+}
+
+.nav-inner {
+  width: min(1100px, 90%);
+  min-height: 72px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
 }
 
 .brand {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    font-weight: 700;
-    color: #547d9a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
 }
 
-.brand-icon {
-    width: 37px;
-    height: 37px;
-    display: grid;
-    place-items: center;
-    border-radius: 13px;
-    background: #ffffffb8;
-    box-shadow: 0 5px 18px #9abbd522;
-    font-size: 21px;
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #f4d9dd, #e8e4f8);
+  font-size: 18px;
 }
 
-.music-button {
-    border: 1px solid #ffffffc9;
-    background: #ffffffa8;
-    color: #567b96;
-    border-radius: 30px;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: 700;
-    transition: .25s;
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
 }
 
-.music-button:hover {
-    background: white;
-    transform: translateY(-2px);
+.nav-right a {
+  font-size: 11px;
+  color: #88777d;
+  transition: color .25s;
+}
+
+.nav-right a:hover {
+  color: #c17f91;
+}
+
+.music-btn {
+  border: 1px solid #ead4d8;
+  background: rgba(255,255,255,.65);
+  color: #a87d89;
+  padding: 10px 14px;
+  border-radius: 30px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.music-btn:hover {
+  background: #f5e2e5;
+  transform: translateY(-2px);
 }
 
 /* HERO */
 
 .hero {
-    width: min(760px, 90%);
-    margin: 45px auto 15px;
-    text-align: center;
+  min-height: 660px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 95px 0 105px;
+  text-align: center;
 }
 
-.hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 8px 15px;
-    border: 1px solid #ffffffc9;
-    border-radius: 30px;
-    background: #ffffff80;
-    color: #668ca7;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(740px, 90%);
+  animation: rise .9s ease both;
+}
+
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,.62);
+  border: 1px solid rgba(226,193,199,.5);
+  padding: 10px 16px;
+  border-radius: 40px;
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  color: #a17c87;
+  margin-bottom: 29px;
 }
 
 .hero h1 {
-    margin: 20px 0 13px;
-    font-family: "Playfair Display", serif;
-    font-size: clamp(34px, 6vw, 57px);
-    line-height: 1.2;
-    color: #496e89;
-    letter-spacing: -1.5px;
+  font-size: clamp(49px, 9vw, 94px);
+  letter-spacing: -3px;
+  line-height: 1.08;
 }
 
-.hero h1 span {
-    color: #e69bb9;
-    font-style: italic;
+.hero h1 em {
+  color: #cb95a2;
+  font-weight: 400;
 }
 
-.hero p {
-    max-width: 430px;
-    margin: auto;
-    font-size: 14px;
-    line-height: 1.9;
-    color: #7b8995;
+.hero-subtitle {
+  font-family: 'Caveat', cursive;
+  color: #a48b91;
+  font-size: clamp(22px, 4vw, 29px);
+  margin: 18px 0;
 }
 
-/* SECTION */
-
-.cards-section {
-    width: min(650px, 92%);
-    margin: 42px auto 75px;
-    text-align: center;
+.hero-description {
+  max-width: 490px;
+  margin: 0 auto;
+  font-size: 13px;
+  color: #938287;
+  line-height: 2;
 }
 
-.section-label {
-    color: #8198a9;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
 }
 
-.section-heading {
-    margin-top: 8px;
-    font-family: "Playfair Display", serif;
-    color: #597a93;
-    font-size: 25px;
+.btn-primary, .btn-secondary {
+  padding: 14px 21px;
+  border-radius: 35px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: .25s;
 }
 
-.section-hint {
-    margin-top: 8px;
-    color: #91a0ad;
-    font-size: 12px;
+.btn-primary {
+  background: #dbaeb8;
+  border: 1px solid #dbaeb8;
+  color: white;
+  box-shadow: 0 7px 22px rgba(205,151,165,.2);
 }
 
-/* KARTU BERTUMPUK */
+.btn-primary:hover {
+  background: #c98f9f;
+  transform: translateY(-3px);
+}
 
-.card-stack {
-    position: relative;
-    width: min(390px, 100%);
-    height: 440px;
-    margin: 30px auto 0;
+.btn-secondary {
+  border: 1px solid #ead5d9;
+  color: #a37c87;
+  background: rgba(255,255,255,.56);
+}
+
+.btn-secondary:hover {
+  background: white;
+  transform: translateY(-3px);
+}
+
+.hero-bottom {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  align-items: center;
+  color: #b7a1a5;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-top: 55px;
+}
+
+.hero-bottom span {
+  width: 36px;
+  height: 1px;
+  background: #e3c9ce;
+}
+
+.decor {
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+  animation: float 5s ease-in-out infinite;
+}
+
+.decor-1 { top: 18%; left: 10%; font-size: 37px; color: #d5b6e4; }
+.decor-2 { top: 23%; right: 12%; font-size: 30px; color: #e5bdc6; animation-delay: -2s; }
+.decor-3 { bottom: 22%; left: 17%; font-size: 27px; color: #e0c8a1; animation-delay: -1s; }
+.decor-4 { bottom: 18%; right: 15%; font-size: 36px; color: #c3dce9; animation-delay: -3s; }
+.decor-5 { top: 13%; right: 28%; font-size: 15px; color: #d5a7b1; }
+.decor-6 { bottom: 30%; right: 8%; font-size: 14px; color: #d7b4dd; }
+
+/* LITTLE INTRO */
+
+.intro {
+  padding: 30px 0 95px;
+}
+
+.intro-card {
+  max-width: 800px;
+  margin: auto;
+  position: relative;
+  background: rgba(255,255,255,.54);
+  border: 1px solid rgba(226,202,204,.58);
+  border-radius: 25px;
+  padding: 37px 45px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.intro-card::before {
+  content: "❝";
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  font-family: Georgia, serif;
+  font-size: 120px;
+  color: rgba(218,172,184,.16);
+}
+
+.intro-card p {
+  position: relative;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(17px, 3vw, 24px);
+  line-height: 1.9;
+}
+
+.intro-card p em {
+  color: #c48d9c;
+}
+
+.intro-signature {
+  font-family: 'Caveat', cursive;
+  font-size: 25px;
+  color: #bb8998;
+  margin-top: 18px;
+}
+
+/* LETTER CARDS */
+
+.notes-section {
+  padding: 65px 0 100px;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .note-card {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 355px;
-    padding: 28px;
-    border: 1px solid #ffffffd9;
-    border-radius: 25px;
-    box-shadow: 0 16px 45px #7a9db21a;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    text-align: center;
-    overflow: hidden;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    transition: box-shadow .25s ease;
+  position: relative;
+  text-align: left;
+  min-height: 245px;
+  padding: 26px 24px;
+  border-radius: 20px;
+  border: 1px solid rgba(210,187,191,.38);
+  box-shadow: 0 10px 32px rgba(110,83,90,.055);
+  cursor: pointer;
+  transition: transform .35s, box-shadow .35s;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .note-card:hover {
-    box-shadow: 0 20px 50px #7a9db233;
+  transform: translateY(-7px) rotate(-.5deg);
+  box-shadow: 0 20px 42px rgba(110,83,90,.11);
 }
 
-.note-card:focus-visible {
-    outline: 3px solid #78acd1;
-    outline-offset: 4px;
+.note-card:nth-child(3n + 1) {
+  background: linear-gradient(145deg, #fff0ef, #fff9f5);
 }
 
-.note-card:nth-child(1) {
-    z-index: 5;
-    top: 0;
-    background: #fffdf9;
-    transform: rotate(-3deg);
+.note-card:nth-child(3n + 2) {
+  background: linear-gradient(145deg, #edf6fb, #f9fbff);
 }
 
-.note-card:nth-child(2) {
-    z-index: 4;
-    top: 12px;
-    background: #fff0f5;
-    transform: rotate(3deg) scale(.97);
+.note-card:nth-child(3n) {
+  background: linear-gradient(145deg, #f2ecfa, #fff8fb);
 }
 
-.note-card:nth-child(3) {
-    z-index: 3;
-    top: 24px;
-    background: #edf7ff;
-    transform: rotate(-4deg) scale(.94);
+.note-card::after {
+  content: "";
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.26);
+  right: -50px;
+  bottom: -55px;
 }
 
-.note-card:nth-child(4) {
-    z-index: 2;
-    top: 36px;
-    background: #fff8e9;
-    transform: rotate(4deg) scale(.91);
+.note-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
 }
 
-.note-card:nth-child(5) {
-    z-index: 1;
-    top: 48px;
-    background: #f4efff;
-    transform: rotate(-2deg) scale(.88);
+.note-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  background: rgba(255,255,255,.65);
+  font-size: 21px;
 }
 
-.card-icon {
-    width: 70px;
-    height: 70px;
-    display: grid;
-    place-items: center;
-    margin-bottom: 20px;
-    border-radius: 23px;
-    background: #ffffffb8;
-    box-shadow: 0 8px 22px #9db9ca1a;
-    font-size: 32px;
+.note-number {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #b49aa1;
 }
 
-.card-label {
-    color: #91a1af;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
+.note-card h3 {
+  font-size: 22px;
+  margin-bottom: 11px;
+  line-height: 1.3;
 }
 
-.card-title {
-    margin: 15px 0 12px;
-    font-family: "Playfair Display", serif;
-    font-size: 29px;
-    color: #5b7890;
-    line-height: 1.3;
-    overflow-wrap: anywhere;
+.note-card p {
+  color: #938188;
+  font-size: 12px;
+  line-height: 1.9;
+  margin-bottom: 18px;
 }
 
-.card-text {
-    max-width: 270px;
-    font-size: 13px;
-    line-height: 1.9;
-    color: #82909c;
-    overflow-wrap: anywhere;
+.note-link {
+  margin-top: auto;
+  font-size: 11px;
+  color: #bd8c9a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.card-footer {
-    margin-top: 22px;
-    color: #d99ab4;
-    font-family: "Caveat", cursive;
-    font-size: 20px;
+.note-link span {
+  transition: transform .25s;
 }
 
-.tap-hint {
-    position: absolute;
-    top: 375px;
-    left: 0;
-    width: 100%;
-    color: #8299aa;
-    font-size: 12px;
+.note-card:hover .note-link span {
+  transform: translateX(5px);
 }
 
-/* PESAN UTAMA */
+/* BIG QUOTE */
 
-.message-section {
-    width: min(620px, 90%);
-    margin: 0 auto 80px;
+.quote-section {
+  padding: 10px 0 105px;
 }
 
-.message-box {
-    padding: 28px;
-    border: 1px solid #ffffffd6;
-    border-radius: 25px;
-    background: #ffffffa6;
-    box-shadow: 0 15px 45px #8caabe1c;
-    text-align: center;
-    backdrop-filter: blur(12px);
+.quote-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(125deg, #f4e1e3, #e9e7f7 55%, #e5f0f6);
+  border-radius: 30px;
+  padding: 65px 30px;
+  text-align: center;
 }
 
-.small-label {
-    color: #c78fa7;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
+.quote-card::before,
+.quote-card::after {
+  position: absolute;
+  font-size: 90px;
+  font-family: 'Playfair Display', serif;
+  color: rgba(255,255,255,.45);
 }
 
-.message-box h2 {
-    margin: 12px 0;
-    font-family: "Playfair Display", serif;
-    font-size: 25px;
-    color: #587b95;
+.quote-card::before {
+  content: "“";
+  top: 3px;
+  left: 35px;
 }
 
-.message-box p {
-    color: #7e8d9a;
-    font-size: 13px;
-    line-height: 1.9;
+.quote-card::after {
+  content: "”";
+  bottom: -48px;
+  right: 35px;
 }
 
-.message-actions {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
+.quote-card h2 {
+  font-size: clamp(26px, 4.8vw, 42px);
+  line-height: 1.5;
+  max-width: 750px;
+  margin: 0 auto;
 }
 
-.action-button {
-    padding: 11px 17px;
-    border: 1px solid #fff;
-    border-radius: 30px;
-    background: #e8f4ff;
-    color: #5d85a3;
-    font-size: 12px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: .2s;
+.quote-card h2 em {
+  color: #ad8294;
 }
 
-.action-button:hover {
-    transform: translateY(-2px);
-    background: #d8ecff;
+.quote-card p {
+  color: #9c8491;
+  font-size: 12px;
+  margin-top: 22px;
+  line-height: 1.9;
 }
 
-.action-button.pink {
-    background: #ffe6ef;
-    color: #bd7796;
+/* DAILY NOTE */
+
+.daily-section {
+  padding: 0 0 105px;
 }
 
-/* GALERI */
+.daily-card {
+  max-width: 760px;
+  margin: auto;
+  background: rgba(255,255,255,.69);
+  border: 1px solid #eee0df;
+  border-radius: 25px;
+  padding: 38px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.daily-date {
+  font-size: 10px;
+  color: #b6979f;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.daily-card h2 {
+  font-size: clamp(27px, 4vw, 38px);
+  margin: 13px 0 20px;
+}
+
+.daily-message {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(17px, 3vw, 23px);
+  line-height: 1.9;
+  color: #806a73;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .2s;
+}
+
+.daily-author {
+  font-family: 'Caveat', cursive;
+  font-size: 23px;
+  color: #c48f9e;
+  margin: 15px 0 25px;
+}
+
+.daily-card button {
+  border: 1px solid #ead2d9;
+  background: #fff4f6;
+  color: #af8290;
+  border-radius: 30px;
+  padding: 12px 19px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.daily-card button:hover {
+  background: #f4dfe4;
+  transform: translateY(-2px);
+}
+
+/* SMALL THINGS */
+
+.little-things {
+  padding: 0 0 105px;
+}
+
+.things-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.thing {
+  background: rgba(255,255,255,.57);
+  border: 1px solid rgba(228,207,208,.62);
+  padding: 25px 16px;
+  border-radius: 18px;
+  text-align: center;
+  transition: .3s;
+}
+
+.thing:hover {
+  transform: translateY(-5px);
+  background: white;
+}
+
+.thing-icon {
+  font-size: 26px;
+  margin-bottom: 13px;
+}
+
+.thing h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.thing p {
+  font-size: 11px;
+  color: #9b858b;
+  line-height: 1.8;
+}
+
+/* JOURNAL */
+
+.journal-section {
+  padding: 0 0 100px;
+}
+
+.journal {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 0;
+  max-width: 920px;
+  margin: auto;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid #e8d9d8;
+}
+
+.journal-left {
+  background: #f1e3df;
+  padding: 38px;
+}
+
+.journal-right {
+  background: #fffdf9;
+  padding: 38px;
+}
+
+.journal-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #b18b91;
+  text-transform: uppercase;
+}
+
+.journal h3 {
+  font-size: 30px;
+  margin: 13px 0 20px;
+}
+
+.journal p {
+  color: #8f7d80;
+  font-size: 12px;
+  line-height: 2;
+}
+
+.journal-list {
+  list-style: none;
+  margin-top: 18px;
+}
+
+.journal-list li {
+  padding: 10px 0;
+  border-bottom: 1px dashed #eadcdb;
+  color: #89787c;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.journal-list li::before {
+  content: "♡ ";
+  color: #cf9ba6;
+}
+
+.journal-note {
+  margin-top: 22px;
+  background: #f8eded;
+  border-radius: 14px;
+  padding: 16px;
+  font-family: 'Caveat', cursive;
+  font-size: 21px;
+  line-height: 1.7;
+  color: #9c7783;
+}
+
+/* GALLERY */
 
 .gallery-section {
-    width: min(850px, 90%);
-    margin: 0 auto 80px;
-    text-align: center;
+  padding: 0 0 105px;
 }
 
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 17px;
-    margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
 }
 
-.gallery-item {
-    min-height: 190px;
-    padding: 12px;
-    border: 1px solid #ffffffd6;
-    border-radius: 20px;
-    background: #ffffff9e;
-    box-shadow: 0 12px 30px #9ab2c31c;
-    cursor: pointer;
-    text-align: left;
-    transition: .25s;
+.gallery-card {
+  min-height: 210px;
+  border-radius: 20px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  border: 1px solid rgba(224,201,205,.5);
+  transition: .3s;
 }
 
-.gallery-item:hover {
-    transform: translateY(-5px);
-    background: #ffffffd9;
+.gallery-card:hover {
+  transform: translateY(-5px);
 }
 
-.gallery-image {
-    min-height: 125px;
-    display: grid;
-    place-items: center;
-    border-radius: 13px;
-    background: linear-gradient(145deg, #d9efff, #ffe5ee);
-    font-size: 37px;
+.gallery-card:nth-child(1) {
+  background: linear-gradient(140deg, #f6e1e3, #f9f2ed);
 }
 
-.gallery-item:nth-child(2) .gallery-image {
-    background: linear-gradient(145deg, #fff0cf, #ffe3ec);
+.gallery-card:nth-child(2) {
+  background: linear-gradient(140deg, #e3edf6, #f5f6fc);
 }
 
-.gallery-item:nth-child(3) .gallery-image {
-    background: linear-gradient(145deg, #e7e0ff, #dff2ff);
+.gallery-card:nth-child(3) {
+  background: linear-gradient(140deg, #eee5f7, #fcf2f6);
 }
 
-.gallery-caption {
-    display: block;
-    margin: 11px 4px 3px;
-    color: #70899d;
-    font-size: 12px;
-    font-weight: 700;
+.gallery-symbol {
+  font-size: 36px;
+}
+
+.gallery-card h3 {
+  font-size: 23px;
+  margin-bottom: 8px;
+}
+
+.gallery-card p {
+  color: #97858a;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.gallery-stamp {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-family: 'Caveat', cursive;
+  font-size: 16px;
+  color: #b58d9b;
+  transform: rotate(9deg);
 }
 
 /* FOOTER */
 
 footer {
-    padding: 30px 15px 38px;
-    border-top: 1px solid #ffffff8c;
-    text-align: center;
-    color: #92a0ad;
-    font-size: 11px;
-    line-height: 2;
+  padding: 50px 20px 30px;
+  text-align: center;
+  border-top: 1px solid rgba(218,193,196,.4);
+  background: rgba(255,255,255,.25);
 }
 
 .footer-heart {
-    color: #e49bb7;
+  font-size: 26px;
+  margin-bottom: 12px;
+  animation: heartbeat 2s infinite;
 }
 
-/* POP-UP SURAT */
-
-.card-popup {
-    position: fixed;
-    inset: 0;
-    z-index: 100;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background: rgba(83, 110, 135, .32);
-    backdrop-filter: blur(8px);
+footer h2 {
+  font-size: 29px;
+  margin-bottom: 12px;
 }
 
-.card-popup.show {
-    display: flex;
-    animation: popupFade .25s ease;
+footer p {
+  max-width: 450px;
+  margin: auto;
+  color: #a18c91;
+  font-size: 11px;
+  line-height: 2;
 }
 
-.popup-paper {
-    position: relative;
-    width: min(420px, 100%);
-    max-height: 85vh;
-    overflow-y: auto;
-    padding: 38px 27px;
-    border: 1px solid white;
-    border-radius: 25px;
-    background: linear-gradient(145deg, #fffdf9, #fff0f6);
-    box-shadow: 0 25px 80px #45657b35;
-    text-align: center;
-    animation: paperOpen .35s ease;
+.footer-small {
+  margin-top: 30px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(218,193,196,.35);
+  color: #b7a4a7;
+  font-size: 10px;
+  letter-spacing: 1px;
 }
 
-.popup-icon {
-    font-size: 43px;
-    margin-bottom: 17px;
+/* MODAL */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(74,56,63,.32);
+  backdrop-filter: blur(8px);
 }
 
-.popup-label {
-    color: #d49ab3;
-    font-size: 10px;
-    letter-spacing: 2px;
-    font-weight: 700;
+.modal.active {
+  display: flex;
+  animation: fade .25s ease;
 }
 
-.popup-title {
-    margin: 14px 0;
-    color: #587b95;
-    font: 600 29px "Playfair Display", serif;
+.modal-paper {
+  position: relative;
+  width: min(540px, 100%);
+  max-height: 85vh;
+  overflow-y: auto;
+  background:
+    radial-gradient(ellipse at top right, rgba(247,226,231,.45), transparent 35%),
+    #fffaf5;
+  border: 1px solid #eedddd;
+  border-radius: 23px;
+  padding: 40px;
+  box-shadow: 0 30px 100px rgba(67,45,53,.20);
+  animation: modalIn .4s cubic-bezier(.2,.8,.2,1);
 }
 
-.popup-text {
-    color: #7b8995;
-    font-size: 14px;
-    line-height: 2;
-    white-space: pre-line;
+.modal-close {
+  position: sticky;
+  top: 0;
+  float: right;
+  margin-top: -14px;
+  margin-right: -14px;
+  border: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f5e6e8;
+  color: #a77b87;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 2;
 }
 
-.popup-signature {
-    margin-top: 23px;
-    color: #d78fac;
-    font: 24px "Caveat", cursive;
+.modal-icon {
+  font-size: 35px;
+  margin: 10px 0 15px;
 }
 
-.popup-close {
-    margin-top: 24px;
-    padding: 11px 22px;
-    border: 0;
-    border-radius: 30px;
-    background: #dcefff;
-    color: #587b95;
-    font-size: 12px;
-    font-weight: 700;
-    cursor: pointer;
+.modal-tag {
+  color: #bf8e9c;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-.popup-close:hover {
-    background: #c8e5ff;
+.modal-paper h2 {
+  font-size: clamp(28px, 6vw, 39px);
+  line-height: 1.25;
+  margin: 12px 0 22px;
 }
 
-@keyframes popupFade {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.modal-message {
+  font-size: 13px;
+  line-height: 2.1;
+  color: #827178;
+  white-space: pre-line;
 }
 
-@keyframes paperOpen {
-    from {
-        opacity: 0;
-        transform: translateY(18px) scale(.94);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+.modal-signature {
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px dashed #e8d2d5;
+  font-family: 'Caveat', cursive;
+  font-size: 25px;
+  color: #bd8999;
 }
 
-/* EFEK HATI DAN TOAST */
+.modal-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 23px;
+  flex-wrap: wrap;
+}
+
+.modal-bottom button {
+  border: 1px solid #ecd8dc;
+  background: #fff1f4;
+  color: #a87c89;
+  border-radius: 30px;
+  padding: 11px 15px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+/* FLOATING EFFECTS */
 
 .floating-heart {
-    position: fixed;
-    z-index: 120;
-    pointer-events: none;
-    font-size: 18px;
-    animation: heartFloat 1.3s ease-out forwards;
-}
-
-@keyframes heartFloat {
-    0% {
-        opacity: 0;
-        transform: translateY(0) scale(.5);
-    }
-    20% { opacity: 1; }
-    100% {
-        opacity: 0;
-        transform: translateY(-110px) scale(1.5) rotate(25deg);
-    }
+  position: fixed;
+  z-index: 110;
+  pointer-events: none;
+  font-size: 20px;
+  animation: heartUp 1.8s ease-out forwards;
 }
 
 .toast {
-    position: fixed;
-    z-index: 150;
-    left: 50%;
-    bottom: 25px;
-    width: max-content;
-    max-width: 90%;
-    padding: 12px 18px;
-    border: 1px solid #fff;
-    border-radius: 30px;
-    background: #ffffffed;
-    box-shadow: 0 10px 30px #6e91a522;
-    color: #63849d;
-    font-size: 12px;
-    opacity: 0;
-    pointer-events: none;
-    transform: translate(-50%, 15px);
-    transition: .25s;
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  background: rgba(255,255,255,.95);
+  color: #a47d88;
+  border: 1px solid #efd9df;
+  border-radius: 40px;
+  padding: 13px 20px;
+  font-size: 12px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s;
+  z-index: 200;
+  text-align: center;
+  width: max-content;
+  max-width: 90%;
 }
 
 .toast.show {
-    opacity: 1;
-    transform: translate(-50%, 0);
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 
-@media (max-width: 560px) {
-    header { padding-top: 18px; }
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s ease, transform .7s ease;
+}
 
-    .hero { margin-top: 30px; }
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    .hero h1 { letter-spacing: -.8px; }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    .cards-section { margin-top: 35px; }
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-13px) rotate(7deg); }
+}
 
-    .card-stack { height: 415px; }
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.13); }
+}
 
-    .note-card {
-        height: 335px;
-        padding: 22px;
-        border-radius: 22px;
-    }
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-    .card-title { font-size: 25px; }
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(20px) scale(.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
 
-    .card-text { font-size: 12px; }
+@keyframes heartUp {
+  0% { opacity: 0; transform: translateY(0) scale(.7) rotate(0); }
+  15% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-150px) scale(1.5) rotate(25deg); }
+}
 
-    .tap-hint { top: 350px; }
+/* RESPONSIVE */
 
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 13px;
-    }
+@media (max-width: 800px) {
+  .notes-grid { grid-template-columns: repeat(2, 1fr); }
+  .things-grid { grid-template-columns: repeat(2, 1fr); }
+  .nav-right { gap: 12px; }
+  .nav-right a { display: none; }
+  .journal { grid-template-columns: 1fr; }
+  .decor-1 { left: 4%; }
+  .decor-2 { right: 5%; }
+}
 
-    .gallery-item {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        min-height: auto;
-    }
-
-    .gallery-image {
-        width: 95px;
-        min-width: 95px;
-        min-height: 80px;
-    }
-
-    .gallery-caption {
-        margin: 0;
-        font-size: 13px;
-    }
-
-    .message-box { padding: 23px 18px; }
-
-    .popup-paper { padding: 32px 22px; }
+@media (max-width: 520px) {
+  .nav-inner { min-height: 64px; }
+  .brand { font-size: 16px; }
+  .brand-mark { width: 32px; height: 32px; }
+  .music-btn { padding: 9px 11px; font-size: 10px; }
+  .hero { min-height: 590px; padding: 75px 0; }
+  .hero h1 { letter-spacing: -1.5px; }
+  .hero-description { font-size: 12px; }
+  .decor-1 { top: 10%; font-size: 24px; }
+  .decor-2 { top: 14%; font-size: 23px; }
+  .decor-3 { bottom: 12%; }
+  .decor-4 { bottom: 11%; right: 5%; }
+  .intro { padding-bottom: 65px; }
+  .intro-card { padding: 30px 23px; }
+  .notes-section { padding: 40px 0 70px; }
+  .notes-grid { gap: 12px; }
+  .note-card { min-height: 235px; padding: 18px 15px; border-radius: 16px; }
+  .note-card h3 { font-size: 18px; }
+  .note-card p { font-size: 11px; }
+  .note-top { margin-bottom: 17px; }
+  .note-icon { width: 36px; height: 36px; font-size: 18px; }
+  .note-number { font-size: 9px; }
+  .section-heading { margin-bottom: 28px; }
+  .quote-card { padding: 48px 23px; }
+  .quote-card::before { left: 10px; }
+  .quote-card::after { right: 10px; }
+  .daily-card { padding: 28px 20px; }
+  .daily-message { min-height: 140px; }
+  .journal-left, .journal-right { padding: 27px 23px; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-card { min-height: 175px; }
+  .modal-paper { padding: 28px 23px; }
+  .modal-close { margin-top: -8px; margin-right: -8px; }
+  .modal-message { font-size: 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-    }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="background-decoration" aria-hidden="true">
-    <div class="blob blob-one"></div>
-    <div class="blob blob-two"></div>
-    <div class="blob blob-three"></div>
-</div>
+<nav>
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <span class="brand-mark">♡</span>
+      <span>A Little Note</span>
+    </a>
 
-<header>
-    <div class="brand">
-        <div class="brand-icon">♡</div>
-        <span>Little Messages</span>
+    <div class="nav-right">
+      <a href="#notes">Little Letters</a>
+      <a href="#daily">Daily Note</a>
+      <a href="#gallery">Memories</a>
+      <button class="music-btn" id="musicButton">♫ Play music</button>
     </div>
-
-    <button class="music-button" id="musicButton" type="button">
-        ♫ Putar musik
-    </button>
-</header>
+  </div>
+</nav>
 
 <main>
-    <section class="hero">
-        <div class="hero-tag">☁ A little corner of happiness</div>
+<section class="hero" id="home">
+  <span class="decor decor-1">✳</span>
+  <span class="decor decor-2">♡</span>
+  <span class="decor decor-3">✿</span>
+  <span class="decor decor-4">✧</span>
+  <span class="decor decor-5">⋆</span>
+  <span class="decor decor-6">✦</span>
 
-        <h1>Untuk kamu, yang <span>istimewa.</span></h1>
+  <div class="hero-content">
+    <div class="hero-label">A tiny corner of happiness ♡</div>
 
+    <h1>A little note,<br><em>just for you.</em></h1>
+
+    <p class="hero-subtitle">For the days you need a little reminder.</p>
+
+    <p class="hero-description">
+      Hai, kamu. Selamat datang di tempat kecil yang penuh dengan
+      kata-kata hangat, harapan sederhana, dan pengingat bahwa kamu
+      adalah seseorang yang berharga. Tidak perlu terburu-buru.
+      Tarik napas sebentar, lalu baca sesuatu yang mungkin perlu
+      kamu dengar hari ini. ♡
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn-primary" href="#notes">Open your little notes ♡</a>
+      <button class="btn-secondary" id="randomButton">Surprise me ✧</button>
+    </div>
+
+    <div class="hero-bottom">
+      <span></span> MADE WITH A LITTLE LOVE <span></span>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="container">
+    <div class="intro-card reveal">
+      <p>
+        “Semoga kamu selalu menemukan alasan untuk tersenyum,
+        bahkan pada hari-hari yang terasa biasa saja.
+        Semoga hatimu tetap lembut, langkahmu tetap kuat,
+        dan kamu tidak pernah lupa bahwa
+        <em>hal-hal baik juga sedang berjalan menuju dirimu.</em>”
+      </p>
+      <div class="intro-signature">a gentle reminder, just for you ♡</div>
+    </div>
+  </div>
+</section>
+
+<section class="notes-section" id="notes">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Your little letters</span>
+      <h2>Open when you <em>need it.</em></h2>
+      <p>
+        Setiap kartu menyimpan cerita kecil yang berbeda.
+        Pilih satu yang paling sesuai dengan perasaanmu hari ini,
+        lalu buka perlahan. Tidak ada pesan yang harus dibaca
+        terburu-buru. ♡
+      </p>
+    </div>
+
+    <div class="notes-grid" id="notesGrid"></div>
+  </div>
+</section>
+
+<section class="quote-section">
+  <div class="container">
+    <div class="quote-card reveal">
+      <h2>
+        You don't have to bloom<br>
+        <em>all at once.</em>
+      </h2>
+      <p>
+        Bahkan bunga pun memiliki waktunya sendiri.<br>
+        Kamu juga boleh bertumbuh dengan perlahan. ♡
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="daily-section" id="daily">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="eyebrow">A little reminder</span>
+      <h2>Your note for <em>today.</em></h2>
+      <p>
+        Sebuah pesan kecil untuk menemani harimu.
+        Siapa tahu, ada satu kalimat yang membuatmu
+        merasa sedikit lebih baik.
+      </p>
+    </div>
+
+    <div class="daily-card reveal">
+      <div class="daily-date" id="dailyDate">A gentle reminder for you</div>
+      <h2>Dear you, ♡</h2>
+      <p class="daily-message" id="dailyMessage">
+        Kamu tidak harus menyelesaikan semuanya hari ini.
+        Satu langkah kecil pun tetap berarti.
+      </p>
+      <div class="daily-author">with warmth, always ♡</div>
+      <button id="anotherNote">Another little note ↗</button>
+    </div>
+  </div>
+</section>
+
+<section class="little-things">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="eyebrow">The little things</span>
+      <h2>Small things that <em>matter.</em></h2>
+      <p>
+        Kebahagiaan tidak selalu datang dari hal-hal besar.
+        Terkadang, ia bersembunyi di dalam momen sederhana
+        yang sering kita lewatkan.
+      </p>
+    </div>
+
+    <div class="things-grid">
+      <div class="thing reveal">
+        <div class="thing-icon">☕</div>
+        <h3>Slow mornings</h3>
+        <p>Menikmati pagi tanpa harus terburu-buru dan memberi diri sendiri kesempatan untuk memulai lagi.</p>
+      </div>
+
+      <div class="thing reveal">
+        <div class="thing-icon">🌷</div>
+        <h3>Kind words</h3>
+        <p>Kalimat sederhana yang tulus bisa tinggal lama di hati seseorang. Termasuk kata-kata baik untuk dirimu sendiri.</p>
+      </div>
+
+      <div class="thing reveal">
+        <div class="thing-icon">🌤️</div>
+        <h3>Fresh starts</h3>
+        <p>Hari yang baru adalah kesempatan untuk mencoba kembali, belajar lagi, dan memperbaiki hal yang bisa diperbaiki.</p>
+      </div>
+
+      <div class="thing reveal">
+        <div class="thing-icon">♡</div>
+        <h3>Being yourself</h3>
+        <p>Kamu tidak perlu menjadi orang lain untuk layak dihargai. Jadilah dirimu sambil terus bertumbuh.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="journal-section">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="eyebrow">A page from my journal</span>
+      <h2>Things I hope <em>for you.</em></h2>
+      <p>
+        Jika aku boleh menitipkan beberapa harapan,
+        mungkin inilah hal-hal sederhana yang ingin
+        selalu menyertai perjalananmu.
+      </p>
+    </div>
+
+    <div class="journal reveal">
+      <div class="journal-left">
+        <div class="journal-label">Dear beautiful soul</div>
+        <h3>For your journey ♡</h3>
         <p>
-            Ada beberapa pesan kecil yang ingin disampaikan.
-            Klik kartu di bawah ini untuk membuka surat kecil
-            yang khusus disiapkan untukmu. ♡
+          Aku berharap kamu selalu memiliki keberanian
+          untuk memulai, kesabaran untuk menjalani proses,
+          dan kebijaksanaan untuk menerima hal-hal yang
+          tidak selalu berjalan sesuai rencana.
         </p>
-    </section>
 
-    <section class="cards-section">
-        <div class="section-label">Something for you</div>
-        <h2 class="section-heading">Little things, big feelings.</h2>
-        <p class="section-hint">Pilih kartu untuk membuka pesan kecil ♡</p>
+        <ul class="journal-list">
+          <li>Semoga kamu selalu diberi kesehatan dan ketenangan.</li>
+          <li>Semoga langkahmu semakin dekat dengan cita-cita baikmu.</li>
+          <li>Semoga kamu dikelilingi orang-orang yang tulus.</li>
+          <li>Semoga hatimu tetap penuh syukur meski keadaan berubah.</li>
+          <li>Semoga Allah menjaga setiap langkah dan niat baikmu.</li>
+        </ul>
 
-        <div class="card-stack">
-
-            <article class="note-card" tabindex="0" role="button"
-                aria-label="Buka pesan Take it easy">
-                <div class="card-icon">☁️</div>
-                <div class="card-label">MESSAGE NO. 01</div>
-                <h3 class="card-title">Take it easy.</h3>
-                <p class="card-text">
-                    Kamu tidak harus menyelesaikan semuanya hari ini.
-                    Beri dirimu waktu untuk bernapas.
-                </p>
-                <div class="card-footer">one step at a time ♡</div>
-            </article>
-
-            <article class="note-card" tabindex="0" role="button"
-                aria-label="Buka pesan Kamu berarti">
-                <div class="card-icon">🌷</div>
-                <div class="card-label">MESSAGE NO. 02</div>
-                <h3 class="card-title">Kamu berarti.</h3>
-                <p class="card-text">
-                    Kehadiranmu punya arti, bahkan saat kamu
-                    merasa tidak melakukan sesuatu yang besar.
-                </p>
-                <div class="card-footer">you are appreciated ♡</div>
-            </article>
-
-            <article class="note-card" tabindex="0" role="button"
-                aria-label="Buka pesan Keep growing">
-                <div class="card-icon">🦋</div>
-                <div class="card-label">MESSAGE NO. 03</div>
-                <h3 class="card-title">Keep growing.</h3>
-                <p class="card-text">
-                    Tidak apa-apa jika prosesmu berbeda.
-                    Setiap orang punya waktunya sendiri.
-                </p>
-                <div class="card-footer">bloom in your own time ♡</div>
-            </article>
-
-            <article class="note-card" tabindex="0" role="button"
-                aria-label="Buka pesan A wish for you">
-                <div class="card-icon">🎀</div>
-                <div class="card-label">MESSAGE NO. 04</div>
-                <h3 class="card-title">For you.</h3>
-                <p class="card-text">
-                    Semoga hari-harimu dipenuhi hal sederhana
-                    yang membuatmu tersenyum.
-                </p>
-                <div class="card-footer">a little sunshine ♡</div>
-            </article>
-
-            <article class="note-card" tabindex="0" role="button"
-                aria-label="Buka surat pesan kecil">
-                <div class="card-icon">💌</div>
-                <div class="card-label">MESSAGE NO. 05</div>
-                <h3 class="card-title">Pesan kecil ♡</h3>
-                <p class="card-text">
-                    Ada sebuah surat kecil yang ingin kamu baca.
-                    Klik untuk membukanya.
-                </p>
-                <div class="card-footer">made with care ♡</div>
-            </article>
-
-            <div class="tap-hint">✧ Tap a card to open the letter ✧</div>
+        <div class="journal-note">
+          “Pelan-pelan juga tidak apa-apa. Yang penting, jangan
+          berhenti belajar menjadi lebih baik.” ♡
         </div>
-    </section>
+      </div>
 
-    <section class="message-section">
-        <div class="message-box">
-            <div class="small-label">A NOTE FOR TODAY</div>
-            <h2 id="messageTitle">Semoga harimu menyenangkan.</h2>
-            <p id="messageText">
-                Semoga selalu ada alasan kecil untuk bersyukur,
-                hal baik untuk dikenang, dan harapan untuk esok hari.
-            </p>
+      <div class="journal-right">
+        <div class="journal-label">A note to remember</div>
+        <h3>And please remember...</h3>
+        <p>
+          Tidak semua hari akan terasa mudah. Ada hari ketika
+          semuanya terasa menyenangkan, dan ada pula hari ketika
+          kamu hanya ingin beristirahat sebentar dari banyaknya
+          hal yang harus dipikirkan.
+        </p>
+        <br>
+        <p>
+          Saat itu terjadi, jangan buru-buru menganggap dirimu
+          gagal. Kamu tetap seseorang yang sedang berusaha.
+          Kamu tetap boleh beristirahat, meminta bantuan,
+          belajar dari kesalahan, dan menyusun ulang rencana.
+        </p>
+        <br>
+        <p>
+          Kamu tidak harus memiliki seluruh jawaban sekarang.
+          Tidak apa-apa jika masih mencari arah. Berikan dirimu
+          waktu untuk tumbuh, dan hargai langkah-langkah kecil
+          yang mungkin tidak dilihat oleh siapa pun.
+        </p>
+        <br>
+        <p>
+          Semoga kamu tidak hanya sibuk mengejar masa depan,
+          tetapi juga sempat menikmati hari ini. Semoga kamu
+          menemukan kebahagiaan dalam hal-hal sederhana,
+          tetap rendah hati ketika berhasil, dan tetap memiliki
+          harapan ketika sesuatu belum sesuai keinginan.
+        </p>
 
-            <div class="message-actions">
-                <button class="action-button" id="nextMessage" type="button">
-                    Pesan lainnya ✨
-                </button>
-
-                <button class="action-button pink" id="heartButton" type="button">
-                    Kirim hati ♡
-                </button>
-            </div>
+        <div class="journal-note">
+          You are allowed to grow at your own pace.
+          There is no deadline for becoming yourself. ♡
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="gallery-section">
-        <div class="section-label">Little gallery</div>
-        <h2 class="section-heading">A few lovely things.</h2>
-        <p class="section-hint">Pilih salah satu untuk membaca pesan kecil.</p>
+<section class="gallery-section" id="gallery">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="eyebrow">A tiny memory corner</span>
+      <h2>Little things to <em>keep.</em></h2>
+      <p>
+        Bukan tentang memiliki hari yang sempurna,
+        melainkan tentang menyimpan hal-hal baik
+        yang membuat perjalanan ini terasa berarti.
+        Klik setiap kartu untuk membaca pesannya.
+      </p>
+    </div>
 
-        <div class="gallery-grid">
-            <button class="gallery-item" type="button"
-                data-title="A little sunshine"
-                data-message="Semoga kamu menemukan cahaya bahkan di hari yang terasa biasa saja. Nikmati hal-hal sederhana yang membuatmu bahagia.">
-                <span class="gallery-image">🌤️</span>
-                <span class="gallery-caption">A little sunshine</span>
-            </button>
-
-            <button class="gallery-item" type="button"
-                data-title="Soft moments"
-                data-message="Jangan lupa menikmati hal-hal sederhana: udara pagi, langit sore, dan waktu bersama orang-orang tersayang.">
-                <span class="gallery-image">🌷</span>
-                <span class="gallery-caption">Soft moments</span>
-            </button>
-
-            <button class="gallery-item" type="button"
-                data-title="A gentle reminder"
-                data-message="Kamu boleh beristirahat. Berhenti sejenak bukan berarti kamu berhenti bertumbuh. Berikan dirimu waktu.">
-                <span class="gallery-image">🦋</span>
-                <span class="gallery-caption">A gentle reminder</span>
-            </button>
+    <div class="gallery-grid">
+      <article class="gallery-card reveal" data-gallery="0" tabindex="0" role="button">
+        <div class="gallery-stamp">keep this ♡</div>
+        <div class="gallery-symbol">🌷</div>
+        <div>
+          <h3>For the soft days</h3>
+          <p>Untuk hari-hari yang tenang, hangat, dan terasa seperti pelukan kecil.</p>
         </div>
-    </section>
+      </article>
+
+      <article class="gallery-card reveal" data-gallery="1" tabindex="0" role="button">
+        <div class="gallery-stamp">little by little</div>
+        <div class="gallery-symbol">☁️</div>
+        <div>
+          <h3>For the cloudy days</h3>
+          <p>Untuk saat kamu perlu mengingat bahwa perasaan pun bisa berubah.</p>
+        </div>
+      </article>
+
+      <article class="gallery-card reveal" data-gallery="2" tabindex="0" role="button">
+        <div class="gallery-stamp">always believe</div>
+        <div class="gallery-symbol">✨</div>
+        <div>
+          <h3>For your dreams</h3>
+          <p>Untuk semua cita-cita baik yang sedang kamu perjuangkan diam-diam.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0 0 100px;text-align:center">
+  <div class="container reveal">
+    <span class="eyebrow">One last thing</span>
+    <h2 style="font-size:clamp(30px,5vw,45px);margin:17px 0">
+      Before you go, <em style="color:#c58e9c">smile a little.</em>
+    </h2>
+    <p style="max-width:500px;margin:0 auto;color:#9b858b;font-size:13px;line-height:2">
+      Terima kasih sudah meluangkan waktu untuk membaca
+      pesan-pesan kecil ini. Semoga ada satu kalimat yang
+      bisa kamu bawa setelah menutup halaman ini.
+      Jangan lupa berbuat baik kepada dirimu sendiri juga, ya.
+    </p>
+    <button class="btn-primary" id="loveButton" style="margin-top:25px">
+      Send yourself some love ♡
+    </button>
+  </div>
+</section>
 </main>
 
 <footer>
-    Made with <span class="footer-heart">♥</span> and a little bit of magic.
-    <br>
-    A Little Note For You ♡
+  <div class="footer-heart">♡</div>
+  <h2>A little note for you.</h2>
+  <p>
+    May your days be gentle, your heart be grateful,
+    your prayers be answered in the best way,
+    and your future be filled with things that bring you closer
+    to the person you hope to become.
+  </p>
+  <div class="footer-small">
+    MADE WITH ♡ · A LITTLE CORNER OF THE INTERNET
+  </div>
 </footer>
 
-<!-- POP-UP SURAT -->
-
-<div class="card-popup" id="cardPopup"
-    role="dialog" aria-modal="true"
-    aria-labelledby="popupTitle">
-
-    <div class="popup-paper">
-        <div class="popup-icon" id="popupIcon">💌</div>
-
-        <div class="popup-label">A LITTLE NOTE FOR YOU</div>
-
-        <h2 class="popup-title" id="popupTitle">Pesan kecil ♡</h2>
-
-        <p class="popup-text" id="popupText"></p>
-
-        <div class="popup-signature">with love, ♡</div>
-
-        <button class="popup-close" id="popupClose" type="button">
-            Tutup surat ✧
-        </button>
+<!-- MODAL PESAN -->
+<div class="modal" id="messageModal" aria-hidden="true">
+  <div class="modal-paper" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="closeModal" aria-label="Tutup pesan">×</button>
+    <div class="modal-icon" id="modalIcon">♡</div>
+    <div class="modal-tag" id="modalTag">A little letter for you</div>
+    <h2 id="modalTitle">Dear you,</h2>
+    <div class="modal-message" id="modalMessage"></div>
+    <div class="modal-signature" id="modalSignature">with love, always ♡</div>
+    <div class="modal-bottom">
+      <button id="copyMessage">Copy this message ♡</button>
+      <button id="closeModalBottom">Keep it in your heart ✧</button>
     </div>
+  </div>
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<audio id="bgMusic" src="./musik.mp3" loop preload="auto"></audio>
+<audio id="backgroundMusic" src="./musik.mp3" loop preload="none"></audio>
 
 <script>
-/* =========================================
-   ISI SURAT UNTUK SETIAP KARTU
-========================================= */
+const letters = [
+  {
+    icon: "🌷",
+    category: "For the days you feel tired",
+    title: "You have done enough.",
+    preview: "Untuk saat kamu merasa lelah dan butuh berhenti sebentar...",
+    message: `Hai, kamu. Kalau hari ini terasa lebih berat daripada biasanya, aku harap kamu mau memberi dirimu sedikit ruang untuk bernapas.
 
-const cardMessages = [
-    {
-        icon: "☁️",
-        title: "Take it easy.",
-        text: `Hai, kamu. Jangan terlalu keras pada dirimu sendiri, ya.
+Kamu tidak harus selalu menjadi orang yang paling kuat. Kamu tidak harus menyelesaikan semua urusan dalam satu waktu. Dan kamu tidak harus tersenyum setiap saat hanya agar orang lain mengira semuanya baik-baik saja.
 
-Tidak semua hal harus selesai hari ini. Kamu boleh istirahat, mengambil napas, dan mencoba lagi besok.
+Ada kalanya istirahat adalah bagian dari perjalanan. Ada kalanya diam sebentar membantumu mendengar apa yang sebenarnya kamu butuhkan.
 
-Pelan-pelan saja. Satu langkah kecil pun tetap berarti. ♡`
-    },
+Lihatlah kembali seberapa jauh kamu sudah melangkah. Mungkin masih ada banyak hal yang ingin kamu capai, tetapi itu bukan berarti usaha yang sudah kamu lakukan tidak berarti.
 
-    {
-        icon: "🌷",
-        title: "Kamu berarti.",
-        text: `Mungkin kamu tidak selalu menyadarinya, tetapi kehadiranmu bisa membawa kebahagiaan bagi orang lain.
+Jangan meremehkan langkah kecilmu. Jangan terlalu keras menilai dirimu hanya karena satu hari tidak berjalan sesuai rencana.
 
-Jangan merasa harus menjadi sempurna untuk bisa dihargai. Jadilah dirimu sendiri dan teruslah bertumbuh.
+Minum air, makan dengan baik, istirahatlah jika perlu, lalu lanjutkan ketika kamu sudah siap.
 
-Kamu berharga, apa adanya. ♡`
-    },
+Kamu tidak harus memenangkan seluruh dunia hari ini. Cukup jalani hari ini sebaik yang kamu bisa.
 
-    {
-        icon: "🦋",
-        title: "Keep growing.",
-        text: `Tidak apa-apa jika perjalananmu berbeda dari orang lain.
+And remember, you are allowed to take a break without giving up on your dreams. ♡`,
+    signature: "one step at a time, okay? ♡"
+  },
+  {
+    icon: "☁️",
+    category: "For the overthinker",
+    title: "Let your heart rest.",
+    preview: "Untuk pikiran yang terlalu ramai dan hati yang butuh ketenangan...",
+    message: `Untuk kamu yang sering memikirkan banyak hal sebelum tidur, yang mengulang percakapan di kepala, yang memikirkan kemungkinan-kemungkinan yang bahkan belum tentu terjadi.
 
-Kamu tidak harus selalu cepat. Nikmati prosesnya, pelajari hal baru, dan jangan lupa menghargai kemajuan kecilmu.
+Aku harap kamu tahu bahwa kamu tidak harus menemukan jawaban untuk semuanya malam ini.
 
-Semoga kamu selalu punya keberanian untuk terus mencoba. ♡`
-    },
+Tidak semua hal bisa kamu kendalikan. Kamu bisa berusaha melakukan yang terbaik, tetapi kamu tidak bisa menentukan seluruh hasilnya. Dan itu bukan kesalahanmu.
 
-    {
-        icon: "🎀",
-        title: "A wish for you.",
-        text: `Semoga hari-harimu dipenuhi hal-hal baik yang sederhana.
+Lakukan apa yang memang menjadi bagianmu. Sampaikan hal yang perlu disampaikan. Perbaiki hal yang masih bisa diperbaiki. Setelah itu, belajarlah untuk melepaskan hal-hal yang berada di luar jangkauanmu.
 
-Semoga kamu menemukan alasan untuk tersenyum, orang-orang yang tulus, dan ketenangan dalam menjalani hari.
+Jangan biarkan ketakutan tentang hari esok mencuri seluruh ketenangan hari ini.
 
-Semoga banyak kebaikan datang kepadamu. ♡`
-    },
+Tarik napas perlahan. Lihat sekelilingmu. Kamu sedang berada di sini, pada saat ini. Beri dirimu izin untuk berhenti memikirkan semuanya sejenak.
 
-    {
-        icon: "💌",
-        title: "Pesan kecil ♡",
-        text: `Kalau kamu sedang membaca ini, semoga kamu tahu bahwa masih banyak hal indah yang bisa kamu temukan.
+Semoga Allah menenangkan hatimu, melapangkan pikiranmu, dan membimbingmu menuju keputusan yang baik.
 
-Jangan lupa tersenyum, jaga dirimu baik-baik, dan tetap punya harapan untuk hari esok.
+You deserve a peaceful moment, too. ♡`,
+    signature: "may peace find you tonight."
+  },
+  {
+    icon: "✨",
+    category: "For your dreams",
+    title: "Keep going, slowly.",
+    preview: "Untuk semua mimpi yang sedang kamu perjuangkan...",
+    message: `Aku tahu, terkadang perjalanan menuju sebuah impian terasa panjang sekali.
 
-Ini cuma pesan kecil, tetapi semoga bisa membuat harimu sedikit lebih indah. ♡`
-    }
+Ada hal-hal yang ingin segera kamu capai. Ada rencana yang ingin segera menjadi kenyataan. Ada pula hari-hari ketika kamu melihat orang lain melangkah lebih cepat, lalu diam-diam bertanya apakah dirimu sudah cukup jauh.
+
+Tapi dengarkan ini: perjalananmu tidak harus sama dengan perjalanan orang lain.
+
+Setiap orang memiliki keadaan, kesempatan, tanggung jawab, dan waktu yang berbeda. Apa yang terlihat mudah bagi orang lain mungkin membutuhkan perjuangan yang tidak sederhana bagimu.
+
+Jadikan keberhasilan orang lain sebagai inspirasi, bukan alasan untuk meragukan dirimu sendiri.
+
+Belajarlah sedikit demi sedikit. Kerjakan apa yang bisa kamu kerjakan hari ini. Bangun kebiasaan baik, jaga niatmu, dan jangan takut memperbaiki arah ketika kamu menyadari ada yang perlu diubah.
+
+Tidak semua usaha langsung terlihat hasilnya. Beberapa hal memang membutuhkan waktu, kesabaran, dan keberanian untuk mencoba lagi.
+
+Semoga Allah memudahkan jalanmu menuju cita-cita yang baik, menjaga niatmu tetap lurus, dan memberkahi setiap usaha yang kamu lakukan.
+
+Your dreams are worth the patience it takes to grow. ♡`,
+    signature: "your future is still unfolding."
+  },
+  {
+    icon: "🪞",
+    category: "For self appreciation",
+    title: "Be kind to yourself.",
+    preview: "Untuk kamu yang sering lupa menghargai dirinya sendiri...",
+    message: `Coba perlakukan dirimu seperti kamu memperlakukan seseorang yang kamu sayangi.
+
+Kalau temanmu melakukan kesalahan, mungkin kamu akan mencoba memahami keadaannya. Kalau seseorang yang kamu sayangi merasa lelah, mungkin kamu akan menyuruhnya beristirahat. Kalau dia belum berhasil, mungkin kamu akan mengingatkannya untuk mencoba lagi.
+
+Lalu, mengapa terkadang kamu begitu keras kepada dirimu sendiri?
+
+Kamu juga manusia. Kamu sedang belajar, sedang bertumbuh, dan sedang berusaha memahami banyak hal. Wajar jika sesekali kamu keliru, merasa bingung, atau membutuhkan waktu lebih lama untuk mengerti sesuatu.
+
+Mengakui kesalahan bukan berarti membenci diri sendiri. Memperbaiki kekurangan bukan berarti menganggap dirimu tidak berharga.
+
+Kamu boleh menginginkan versi dirimu yang lebih baik sambil tetap menghargai dirimu yang sekarang.
+
+Ucapkan terima kasih kepada dirimu karena sudah berusaha. Hargai keberanianmu untuk memulai lagi. Dan jangan lupa, proses menjadi lebih baik juga membutuhkan kesabaran.
+
+Semoga kamu tumbuh bukan karena membenci siapa dirimu sekarang, melainkan karena menyayangi dirimu dan ingin menjaganya dengan lebih baik.
+
+Be gentle with yourself. You are learning, too. ♡`,
+    signature: "you are worthy of kindness."
+  },
+  {
+    icon: "🌻",
+    category: "For a brighter day",
+    title: "Notice the little joys.",
+    preview: "Pengingat untuk menemukan kebahagiaan dalam hal sederhana...",
+    message: `Semoga kamu tidak terlalu sibuk mengejar hal-hal besar sampai lupa menikmati hal-hal kecil yang sudah ada di sekitarmu.
+
+Semoga kamu masih sempat menikmati udara pagi, tertawa karena hal sederhana, mendengarkan lagu yang kamu suka, berbincang dengan orang-orang yang membuatmu nyaman, atau sekadar melihat langit yang berubah warna menjelang senja.
+
+Kebahagiaan tidak selalu datang sebagai peristiwa besar. Terkadang, ia hadir dalam bentuk yang begitu sederhana sampai kita hampir melewatkannya.
+
+Satu percakapan yang menyenangkan. Satu tugas yang akhirnya selesai. Satu doa yang membuat hati lebih tenang. Satu kesempatan untuk mencoba kembali.
+
+Kalau hari ini belum ada sesuatu yang istimewa, bukan berarti hari ini tidak berharga.
+
+Mungkin hari ini adalah hari untuk belajar. Mungkin hari ini adalah hari untuk beristirahat. Mungkin hari ini hanyalah satu halaman biasa dalam cerita panjang yang sedang kamu jalani.
+
+Dan itu tidak apa-apa.
+
+Semoga kamu selalu memiliki mata untuk melihat kebaikan kecil, hati untuk mensyukurinya, dan waktu untuk benar-benar menikmatinya.
+
+Collect little moments, not just big achievements. ♡`,
+    signature: "let ordinary days be beautiful, too."
+  },
+  {
+    icon: "🤍",
+    category: "For difficult moments",
+    title: "This will not define you.",
+    preview: "Untuk saat sesuatu tidak berjalan seperti yang kamu harapkan...",
+    message: `Kalau sesuatu tidak berjalan sesuai rencana, aku harap kamu tidak langsung menganggap seluruh usahamu sia-sia.
+
+Satu kegagalan tidak menceritakan keseluruhan kisahmu. Satu kesalahan tidak menghapus semua kebaikan yang pernah kamu lakukan. Satu hari yang buruk tidak menentukan seperti apa seluruh masa depanmu.
+
+Tentu saja, kecewa itu wajar. Kamu boleh merasa sedih ketika sesuatu yang kamu harapkan belum terwujud. Kamu boleh membutuhkan waktu untuk menerima kenyataan dan memahami apa yang sebenarnya terjadi.
+
+Tetapi setelah itu, ingatlah bahwa kamu masih memiliki kesempatan untuk belajar.
+
+Tanyakan kepada dirimu: apa yang bisa aku perbaiki? Apa yang bisa aku pelajari? Langkah apa yang masih mungkin aku ambil?
+
+Kamu tidak harus berpura-pura bahwa semuanya baik-baik saja. Cukup jujur kepada diri sendiri, lalu cari jalan untuk melangkah lagi.
+
+Ada banyak hal yang belum kamu ketahui tentang masa depanmu. Jangan biarkan satu bab yang sulit membuatmu menyimpulkan seluruh cerita.
+
+Keep the lesson, release the shame, and allow yourself to begin again. ♡`,
+    signature: "you can always learn and begin again."
+  },
+  {
+    icon: "🌙",
+    category: "For a quiet night",
+    title: "Rest without guilt.",
+    preview: "Untuk malam ketika kamu perlu meletakkan semua beban sebentar...",
+    message: `Malam ini, semoga kamu bisa meletakkan sebentar semua hal yang terus berputar di pikiranmu.
+
+Tugas yang belum selesai, rencana untuk esok hari, percakapan yang masih kamu pikirkan, dan berbagai hal yang belum menemukan jawabannya.
+
+Kamu boleh mencatat apa yang perlu dilakukan besok, lalu memberi dirimu kesempatan untuk beristirahat malam ini.
+
+Tidak semua hal harus diselesaikan sekaligus. Tidak semua pertanyaan harus dijawab sekarang. Dan tidak semua waktu luang harus diisi dengan sesuatu yang produktif.
+
+Tubuhmu membutuhkan istirahat. Pikiranmu juga membutuhkan jeda.
+
+Semoga malam ini menjadi waktu untuk menenangkan hati, mensyukuri hal-hal baik yang sudah terjadi, dan memohon kepada Allah agar urusanmu dimudahkan.
+
+Kalau ada kesalahan hari ini, jadikan ia pelajaran. Kalau ada hal baik hari ini, jangan lupa mengucap syukur. Kalau ada sesuatu yang belum tercapai, serahkan hasilnya kepada Allah sambil tetap berusaha memperbaiki ikhtiarmu.
+
+Semoga tidurmu tenang, pikiranmu lebih ringan, dan esok kamu diberi kesempatan untuk memulai hari dengan harapan yang baru.
+
+You have done what you could today. Let yourself rest. ♡`,
+    signature: "good night, and may your heart feel lighter."
+  },
+  {
+    icon: "🕊️",
+    category: "For your faith",
+    title: "Leave room for prayer.",
+    preview: "Pengingat untuk tetap berdoa dan berharap kepada Allah...",
+    message: `Di tengah semua rencana, usaha, dan harapan yang sedang kamu bangun, semoga kamu tidak lupa menyediakan ruang untuk berdoa.
+
+Ada hal-hal yang bisa kita rencanakan dengan matang, tetapi hasil akhirnya tetap berada di luar pengetahuan kita. Ada jalan yang terasa mudah, ada pula jalan yang meminta kita belajar lebih banyak tentang sabar.
+
+Teruslah berikhtiar dengan cara yang baik. Pelajari apa yang perlu dipelajari. Perbaiki apa yang masih kurang. Mintalah nasihat ketika membutuhkannya, dan jangan berhenti berdoa hanya karena jawaban yang kamu tunggu belum datang sesuai waktumu.
+
+Tawakal bukan berarti berhenti berusaha. Ia adalah belajar melakukan bagian kita dengan sungguh-sungguh, kemudian menyerahkan hasilnya kepada Allah.
+
+Semoga Allah menjaga hatimu dari keputusasaan, membimbingmu ketika bingung memilih jalan, dan menguatkanmu ketika proses terasa panjang.
+
+Semoga ilmu yang kamu pelajari menjadi manfaat, rezeki yang kamu peroleh membawa berkah, hubunganmu dengan orang lain dipenuhi kebaikan, dan cita-citamu membawamu semakin dekat kepada hal-hal yang diridai-Nya.
+
+Tidak semua jawaban datang dengan cara yang kita bayangkan. Maka, teruslah berdoa dan berusaha dengan penuh harap.
+
+May Allah guide your steps and bless your journey. ♡`,
+    signature: "keep making dua, keep doing your best."
+  },
+  {
+    icon: "🌸",
+    category: "For growing up",
+    title: "You are still becoming.",
+    preview: "Untuk kamu yang sedang belajar mengenal dirinya sendiri...",
+    message: `Kamu tidak harus menjadi seseorang yang sudah memahami seluruh kehidupan.
+
+Ada banyak hal yang baru akan kamu mengerti setelah menjalaninya. Ada keputusan yang mengajarkanmu tentang tanggung jawab. Ada pertemuan yang mengajarkanmu tentang ketulusan. Ada pengalaman yang membuatmu menyadari apa yang benar-benar penting bagimu.
+
+Biarkan dirimu belajar.
+
+Kamu boleh mengubah pendapat setelah memperoleh pengetahuan baru. Kamu boleh memperbaiki kebiasaan yang ternyata tidak baik. Kamu boleh menyusun ulang tujuan ketika menemukan arah yang lebih sesuai dengan nilai-nilai yang kamu yakini.
+
+Bertumbuh bukan tentang menjadi sempurna. Bertumbuh adalah kesediaan untuk melihat kekurangan dengan jujur tanpa kehilangan harapan terhadap diri sendiri.
+
+Jangan takut menjadi pemula. Jangan malu bertanya. Jangan menganggap proses belajar sebagai sesuatu yang membuatmu lebih rendah daripada orang lain.
+
+Setiap orang pernah tidak tahu. Setiap orang perlu belajar. Dan setiap orang memiliki ruang untuk berkembang.
+
+Semoga kamu menjadi pribadi yang semakin berilmu, semakin bijaksana, semakin tulus, dan semakin bermanfaat bagi orang-orang di sekitarmu.
+
+You are not behind. You are becoming. ♡`,
+    signature: "give yourself time to grow."
+  },
+  {
+    icon: "💌",
+    category: "For your heart",
+    title: "You deserve good things.",
+    preview: "Pengingat bahwa kamu juga pantas menerima kebaikan...",
+    message: `Semoga kamu selalu ingat bahwa menerima kebaikan bukan sesuatu yang harus kamu bayar dengan menjadi sempurna.
+
+Kamu tetap boleh menerima bantuan ketika sedang kesulitan. Kamu boleh merasa senang atas pencapaianmu sendiri. Kamu boleh menikmati hasil dari usaha yang sudah kamu lakukan. Kamu juga boleh mengakui bahwa ada hal-hal yang membuatmu bahagia.
+
+Hargai orang-orang yang tulus kepadamu. Belajarlah menerima nasihat tanpa merasa direndahkan, dan belajarlah membedakan kritik yang membangun dengan perkataan yang hanya membuatmu kehilangan kepercayaan diri.
+
+Tetaplah rendah hati, tetapi jangan mengecilkan semua hal baik yang ada dalam dirimu.
+
+Kalau kamu memiliki kesempatan untuk melakukan kebaikan, lakukanlah dengan tulus. Kalau kamu menerima kebaikan dari seseorang, syukurilah. Dan kalau kamu sedang membutuhkan bantuan, jangan merasa bahwa kamu harus menghadapi semuanya sendirian.
+
+Semoga kamu bertemu dengan lingkungan yang mendorongmu menjadi lebih baik, persahabatan yang dipenuhi kejujuran, dan kesempatan-kesempatan yang membantumu berkembang.
+
+Kamu tidak perlu menjadi orang lain untuk layak diperlakukan dengan hormat.
+
+May you always find kindness, and may you learn to offer it to yourself, too. ♡`,
+    signature: "you matter, more than you know."
+  },
+  {
+    icon: "🌈",
+    category: "For a new beginning",
+    title: "Start where you are.",
+    preview: "Untuk setiap awal baru yang masih membuatmu ragu...",
+    message: `Kalau kamu sedang ingin memulai sesuatu yang baru, tetapi merasa belum cukup siap, mungkin kamu bisa mulai dari langkah yang paling sederhana.
+
+Kamu tidak harus mengetahui seluruh perjalanan sebelum mengambil langkah pertama. Terkadang, kita baru memahami apa yang perlu dilakukan setelah mulai mencoba.
+
+Mulailah dengan apa yang kamu punya. Pelajari hal yang belum kamu pahami. Tanyakan apa yang belum kamu ketahui. Susun rencana yang masuk akal, lalu kerjakan sedikit demi sedikit.
+
+Jangan menunggu semuanya sempurna, karena kesempurnaan sering kali menjadi alasan untuk terus menunda.
+
+Tentu saja, kamu tetap perlu mempertimbangkan risiko, meminta nasihat yang tepat, dan memperbaiki rencana ketika keadaan berubah. Berani memulai bukan berarti harus bertindak tanpa berpikir.
+
+Yang penting, jangan biarkan rasa takut membuatmu mengabaikan kesempatan untuk belajar.
+
+Jika percobaan pertama belum berhasil, evaluasi. Jika kamu perlu mengubah strategi, sesuaikan. Jika kamu perlu beristirahat, beristirahatlah, lalu lanjutkan ketika siap.
+
+Semoga setiap awal baru membawamu pada pengalaman yang berharga, ilmu yang bermanfaat, dan kedewasaan dalam mengambil keputusan.
+
+A fresh start doesn't need a perfect plan. It needs an honest first step. ♡`,
+    signature: "begin gently, but begin."
+  },
+  {
+    icon: "🌼",
+    category: "For gratitude",
+    title: "Look how far you've come.",
+    preview: "Untuk mengingat kembali perjalanan yang sudah kamu lalui...",
+    message: `Sesekali, berhentilah sejenak dan lihat kembali perjalananmu.
+
+Ingatlah hal-hal yang dulu terasa sulit, tetapi sekarang mulai kamu pahami. Ingatlah keberanian yang kamu kumpulkan untuk mencoba sesuatu yang baru. Ingatlah orang-orang yang membantumu, pelajaran yang kamu peroleh, dan kesempatan yang membuatmu berkembang.
+
+Mungkin belum semua harapanmu terwujud. Mungkin masih ada banyak hal yang sedang kamu perjuangkan. Namun, kamu juga tidak harus menunggu sampai seluruh tujuan tercapai untuk mensyukuri perjalananmu.
+
+Syukuri kesempatan untuk belajar. Syukuri orang-orang yang tulus. Syukuri kesehatan dan waktu yang masih bisa kamu gunakan untuk memperbaiki diri.
+
+Jika ada sesuatu yang belum berhasil, ambil pelajarannya. Jika ada sesuatu yang berjalan baik, nikmati dengan rasa syukur tanpa melupakan kerendahan hati.
+
+Kamu boleh memiliki ambisi besar sambil tetap menghargai hal-hal sederhana yang sudah ada hari ini.
+
+Semoga rasa syukur membuat hatimu lebih lapang, bukan membuatmu berhenti berusaha. Semoga harapan membuatmu terus melangkah, bukan membuatmu lupa menikmati proses.
+
+Look back with gratitude, look forward with hope, and live today with intention. ♡`,
+    signature: "there is still so much to be grateful for."
+  },
+  {
+    icon: "💫",
+    category: "A final little reminder",
+    title: "Your story continues.",
+    preview: "Pesan terakhir untuk dibawa setelah menutup halaman ini...",
+    message: `Hai, kamu. Terima kasih sudah sampai di bagian ini.
+
+Aku tidak tahu persis seperti apa hari-harimu, apa saja yang sedang kamu pikirkan, atau seberapa panjang perjalanan yang sedang kamu tempuh. Namun, aku berharap beberapa kata sederhana di halaman ini bisa menemanimu dengan cara yang baik.
+
+Semoga kamu terus memiliki keberanian untuk bermimpi dan kerendahan hati untuk belajar.
+
+Semoga kamu tidak kehilangan rasa ingin tahu terhadap dunia, tidak melupakan orang-orang yang menyayangimu, dan tidak terlalu sibuk mengejar masa depan sampai lupa menjaga dirimu hari ini.
+
+Semoga kamu semakin mengenal dirimu sendiri. Semoga kamu belajar memilih hal-hal yang bermanfaat, menjaga waktu, menghargai ilmu, dan menggunakan kemampuanmu untuk membantu orang lain.
+
+Ketika berhasil, semoga kamu tetap rendah hati. Ketika keliru, semoga kamu berani memperbaiki diri. Ketika bingung, semoga kamu mau mencari petunjuk. Dan ketika sesuatu membutuhkan waktu, semoga kamu tetap memiliki kesabaran untuk menjalani prosesnya.
+
+Tidak semua bagian cerita harus indah agar hidupmu tetap memiliki makna. Ada bagian yang mengajarkanmu. Ada bagian yang mendewasakanmu. Ada bagian yang baru kamu pahami setelah waktu berlalu.
+
+Teruslah berjalan dengan niat yang baik. Rawat harapanmu, jaga hubunganmu dengan Allah, dan jangan lupa bahwa perjalanan yang baik bukan hanya tentang seberapa jauh kamu sampai, tetapi juga tentang menjadi pribadi seperti apa kamu selama menjalaninya.
+
+I hope life brings you closer to what is truly good for you.
+
+Until the next little note, take care of yourself. ♡`,
+    signature: "your story is still being written. ♡"
+  }
 ];
 
-/* =========================================
-   MEMBUKA SURAT KARTU
-   Setiap kartu hanya membuka surat miliknya.
-========================================= */
+const galleryLetters = [
+  {
+    icon: "🌷",
+    category: "A little memory",
+    title: "Keep the gentle moments.",
+    message: `Suatu hari nanti, mungkin kamu tidak akan mengingat seluruh detail dari hari-hari yang sedang kamu jalani sekarang.
 
-const cards = document.querySelectorAll(".note-card");
-const cardPopup = document.getElementById("cardPopup");
-const popupIcon = document.getElementById("popupIcon");
-const popupTitle = document.getElementById("popupTitle");
-const popupText = document.getElementById("popupText");
-const popupClose = document.getElementById("popupClose");
+Namun, semoga kamu masih mengingat tawa sederhana, percakapan yang menyenangkan, bantuan kecil yang diberikan seseorang, dan momen ketika kamu merasa bersyukur karena bisa melewati hari itu.
 
-let lastFocusedCard = null;
+Jangan hanya mengabadikan hal-hal besar. Simpan juga hal-hal kecil yang membuatmu merasa hidupmu berarti.
 
-function openCardMessage(card, index) {
-    const message = cardMessages[index];
+Sebab, ketika waktu berlalu, terkadang justru kenangan sederhana itulah yang paling ingin kita kunjungi kembali.
 
-    if (!message) return;
+Semoga kamu memiliki banyak momen hangat untuk dikenang, dan semoga kamu juga menjadi bagian dari kenangan baik dalam kehidupan orang lain. ♡`
+  },
+  {
+    icon: "☁️",
+    category: "A little reminder",
+    title: "Cloudy days will pass.",
+    message: `Tidak setiap hari harus cerah agar perjalananmu tetap berharga.
 
-    lastFocusedCard = card;
+Ada hari ketika semangatmu tinggi, ada hari ketika kamu perlu mengumpulkan tenaga kembali. Ada waktu ketika rencana terasa jelas, ada pula waktu ketika kamu perlu berhenti dan memikirkan langkah berikutnya.
 
-    popupIcon.textContent = message.icon;
-    popupTitle.textContent = message.title;
-    popupText.textContent = message.text;
+Hadapi hari yang ada di depanmu satu per satu. Jangan menuntut dirimu untuk menyelesaikan seluruh perjalanan sekaligus.
 
-    cardPopup.classList.add("show");
-    document.body.style.overflow = "hidden";
+Kalau hari ini terasa mendung, semoga kamu tetap memiliki keyakinan bahwa perasaan dapat berubah, keadaan dapat dipelajari, dan selalu ada ruang untuk mencari bantuan serta menemukan cara baru.
 
-    createHearts(
-        window.innerWidth / 2,
-        window.innerHeight / 2,
-        5
-    );
+Take your time. Breathe. Keep a little hope in your heart. ♡`
+  },
+  {
+    icon: "✨",
+    category: "A little wish",
+    title: "May your dreams find a way.",
+    message: `Untuk semua impian baik yang masih kamu simpan dalam hati, semoga kamu diberi kesempatan untuk memperjuangkannya.
 
-    popupClose.focus();
-}
+Semoga kamu bertemu dengan orang-orang yang mengajarkan kebaikan, memperoleh ilmu yang bermanfaat, dan menemukan jalan yang membantumu tumbuh menjadi pribadi yang lebih bijaksana.
 
-cards.forEach((card, index) => {
-    card.addEventListener("click", () => {
-        openCardMessage(card, index);
-    });
+Semoga ketika rencana berubah, kamu tetap mampu mencari jalan lain. Ketika perlu belajar lagi, kamu tidak malu untuk memulai. Dan ketika memperoleh keberhasilan, kamu tetap ingat untuk bersyukur.
 
-    card.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            openCardMessage(card, index);
-        }
-    });
-});
+Berusahalah dengan sungguh-sungguh, berdoalah dengan penuh harap, dan serahkan hasilnya kepada Allah.
 
-function closeCardMessage() {
-    cardPopup.classList.remove("show");
-    document.body.style.overflow = "";
-
-    if (lastFocusedCard) {
-        lastFocusedCard.focus();
-    }
-}
-
-popupClose.addEventListener("click", closeCardMessage);
-
-cardPopup.addEventListener("click", (event) => {
-    if (event.target === cardPopup) {
-        closeCardMessage();
-    }
-});
-
-document.addEventListener("keydown", (event) => {
-    if (
-        event.key === "Escape" &&
-        cardPopup.classList.contains("show")
-    ) {
-        closeCardMessage();
-    }
-});
-
-/* =========================================
-   PESAN UTAMA
-========================================= */
+May your dreams be good, your intentions be sincere, and your journey be blessed. ♡`
+  }
+];
 
 const dailyMessages = [
-    {
-        title: "Semoga harimu menyenangkan.",
-        text: "Semoga selalu ada alasan kecil untuk bersyukur, hal baik untuk dikenang, dan harapan untuk esok hari."
-    },
-    {
-        title: "Kamu sudah berusaha.",
-        text: "Apa pun hasilnya, jangan lupa menghargai usaha yang sudah kamu lakukan. Kamu masih punya kesempatan untuk belajar."
-    },
-    {
-        title: "Jangan lupa tersenyum.",
-        text: "Sisihkan sedikit waktu untuk hal-hal yang kamu sukai. Kamu juga layak menikmati hari dengan tenang."
-    },
-    {
-        title: "Satu hari, satu langkah.",
-        text: "Kamu tidak perlu mengetahui semua jawaban sekarang. Jalani yang ada di depanmu satu per satu."
-    },
-    {
-        title: "Semoga banyak kebaikan datang.",
-        text: "Semoga urusanmu dimudahkan, hatimu ditenangkan, dan langkahmu dipertemukan dengan hal-hal yang baik."
-    }
+  "Kamu tidak harus menyelesaikan semuanya hari ini. Satu langkah kecil yang dilakukan dengan sungguh-sungguh tetap merupakan kemajuan.",
+  "Jangan membandingkan prosesmu dengan perjalanan orang lain. Kamu memiliki keadaan, kesempatan, dan waktu yang berbeda. Fokuslah pada langkah baik yang bisa kamu ambil sekarang.",
+  "Semoga hari ini kamu menemukan satu alasan untuk bersyukur, satu hal baru untuk dipelajari, dan satu kesempatan untuk berbuat baik.",
+  "Kalau hari ini belum berjalan sesuai harapan, bukan berarti semuanya gagal. Istirahatlah bila perlu, ambil pelajarannya, lalu susun kembali langkahmu.",
+  "Kamu boleh memiliki impian besar dan tetap menikmati hal-hal sederhana. Jangan sampai kesibukan mengejar masa depan membuatmu lupa mensyukuri hari ini.",
+  "Jangan lupa berbicara baik kepada dirimu sendiri. Kamu sedang belajar, dan belajar adalah proses yang membutuhkan waktu.",
+  "Semoga Allah menenangkan hatimu, memudahkan urusanmu, menjaga langkahmu, dan membimbingmu menuju hal-hal yang baik.",
+  "Keberhasilan bukan hanya tentang seberapa cepat kamu sampai. Ada nilai dalam kejujuran, kesabaran, ilmu, dan kebaikan yang kamu bawa selama perjalanan.",
+  "Tidak apa-apa jika kamu masih mencari arah. Pelajari apa yang perlu dipelajari, mintalah nasihat yang baik, lalu pilih langkah berikutnya dengan bijaksana.",
+  "Hari ini, cobalah menghargai satu hal yang sudah kamu lakukan dengan baik. Kamu tidak perlu menunggu semuanya sempurna untuk bersyukur.",
+  "Jadilah orang yang tetap lembut tanpa kehilangan ketegasan, tetap rendah hati tanpa mengecilkan diri, dan tetap berharap sambil terus berusaha.",
+  "Semoga hal-hal baik yang sedang kamu usahakan hari ini menjadi jalan menuju masa depan yang bermanfaat dan penuh berkah."
 ];
 
-let dailyIndex = 0;
+const notesGrid = document.getElementById("notesGrid");
+const modal = document.getElementById("messageModal");
+const modalIcon = document.getElementById("modalIcon");
+const modalTag = document.getElementById("modalTag");
+const modalTitle = document.getElementById("modalTitle");
+const modalMessage = document.getElementById("modalMessage");
+const modalSignature = document.getElementById("modalSignature");
+const toast = document.getElementById("toast");
 
-const messageTitle = document.getElementById("messageTitle");
-const messageText = document.getElementById("messageText");
-
-document.getElementById("nextMessage").addEventListener("click", () => {
-    dailyIndex = (dailyIndex + 1) % dailyMessages.length;
-
-    const message = dailyMessages[dailyIndex];
-
-    messageTitle.textContent = message.title;
-    messageText.textContent = message.text;
-
-    showToast("Pesan baru untukmu ♡");
-});
-
-/* =========================================
-   GALERI
-========================================= */
-
-document.querySelectorAll(".gallery-item").forEach((item) => {
-    item.addEventListener("click", () => {
-        messageTitle.textContent = item.dataset.title;
-        messageText.textContent = item.dataset.message;
-
-        document.querySelector(".message-section").scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-    });
-});
-
-/* =========================================
-   EFEK HATI
-========================================= */
-
-function createHearts(x, y, count = 5) {
-    const symbols = ["♡", "♥", "💕", "✧", "💗"];
-
-    for (let i = 0; i < count; i++) {
-        const heart = document.createElement("span");
-
-        heart.className = "floating-heart";
-        heart.textContent =
-            symbols[Math.floor(Math.random() * symbols.length)];
-
-        heart.style.left =
-            (x + (Math.random() - 0.5) * 80) + "px";
-
-        heart.style.top =
-            (y + (Math.random() - 0.5) * 25) + "px";
-
-        heart.style.animationDelay =
-            (Math.random() * 0.25) + "s";
-
-        document.body.appendChild(heart);
-
-        heart.addEventListener("animationend", () => {
-            heart.remove();
-        });
-    }
-}
-
-document.getElementById("heartButton").addEventListener("click", () => {
-    createHearts(
-        window.innerWidth / 2,
-        window.innerHeight * 0.65,
-        12
-    );
-
-    showToast("Mengirim banyak hati untukmu! 💗");
-});
-
-/* =========================================
-   NOTIFIKASI
-========================================= */
-
+let activeLetter = null;
+let previousFocus = null;
+let lastDailyIndex = -1;
 let toastTimeout;
 
-function showToast(text) {
-    const toast = document.getElementById("toast");
-
-    toast.textContent = text;
-    toast.classList.add("show");
-
-    clearTimeout(toastTimeout);
-
-    toastTimeout = setTimeout(() => {
-        toast.classList.remove("show");
-    }, 2200);
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, character => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;"
+  })[character]);
 }
 
-/* =========================================
-   MUSIK LATAR
-========================================= */
+function renderCards() {
+  notesGrid.innerHTML = letters.map((letter, index) => `
+    <button class="note-card reveal"
+      type="button"
+      data-letter="${index}"
+      aria-label="Buka pesan: ${escapeHTML(letter.title)}">
+      <div class="note-top">
+        <div class="note-icon">${letter.icon}</div>
+        <span class="note-number">LETTER ${String(index + 1).padStart(2, "0")}</span>
+      </div>
+      <h3>${escapeHTML(letter.title)}</h3>
+      <p>${escapeHTML(letter.preview)}</p>
+      <div class="note-link">
+        Read your letter <span>↗</span>
+      </div>
+    </button>
+  `).join("");
 
-const bgMusic = document.getElementById("bgMusic");
-const musicButton = document.getElementById("musicButton");
+  notesGrid.querySelectorAll("[data-letter]").forEach(card => {
+    card.addEventListener("click", () => {
+      openLetter(letters[Number(card.dataset.letter)], card);
+    });
+  });
 
-let musicPlaying = false;
+  observeReveals();
+}
 
-async function toggleMusic() {
-    if (musicPlaying) {
-        bgMusic.pause();
-        musicPlaying = false;
-        musicButton.textContent = "♫ Putar musik";
-        showToast("Musik dijeda");
-        return;
-    }
+function openLetter(letter, trigger) {
+  activeLetter = letter;
+  previousFocus = trigger || document.activeElement;
+
+  modalIcon.textContent = letter.icon || "♡";
+  modalTag.textContent = letter.category || "A little letter for you";
+  modalTitle.textContent = letter.title;
+  modalMessage.textContent = letter.message;
+  modalSignature.textContent = letter.signature || "with love, always ♡";
+
+  modal.classList.add("active");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+
+  document.getElementById("closeModal").focus();
+}
+
+function closeLetter() {
+  modal.classList.remove("active");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+
+  if (previousFocus && typeof previousFocus.focus === "function") {
+    previousFocus.focus();
+  }
+}
+
+document.getElementById("closeModal").addEventListener("click", closeLetter);
+document.getElementById("closeModalBottom").addEventListener("click", closeLetter);
+
+modal.addEventListener("click", event => {
+  if (event.target === modal) closeLetter();
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && modal.classList.contains("active")) {
+    closeLetter();
+  }
+});
+
+function showToast(message) {
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(toastTimeout);
+
+  toastTimeout = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2600);
+}
+
+document.getElementById("copyMessage").addEventListener("click", async () => {
+  if (!activeLetter) return;
+
+  const textToCopy =
+    activeLetter.title + "\n\n" +
+    activeLetter.message + "\n\n" +
+    (activeLetter.signature || "with love, always ♡");
+
+  try {
+    await navigator.clipboard.writeText(textToCopy);
+    showToast("Pesannya berhasil disalin. Simpan baik-baik ya ♡");
+  } catch {
+    const textArea = document.createElement("textarea");
+    textArea.value = textToCopy;
+    textArea.style.position = "fixed";
+    textArea.style.opacity = "0";
+    document.body.appendChild(textArea);
+    textArea.select();
 
     try {
-        await bgMusic.play();
-
-        musicPlaying = true;
-        musicButton.textContent = "♫ Musik menyala";
-        showToast("Musik mulai diputar ♡");
-    } catch (error) {
-        musicPlaying = false;
-        musicButton.textContent = "♫ Coba putar lagi";
-        showToast("Periksa file musik.mp3 kamu");
+      const copied = document.execCommand("copy");
+      showToast(copied
+        ? "Pesannya berhasil disalin ♡"
+        : "Silakan salin pesan secara manual ya ♡");
+    } catch {
+      showToast("Silakan salin pesan secara manual ya ♡");
     }
+
+    textArea.remove();
+  }
+});
+
+function chooseRandomLetter() {
+  const index = Math.floor(Math.random() * letters.length);
+  const card = notesGrid.querySelector(`[data-letter="${index}"]`);
+  openLetter(letters[index], card);
 }
 
-musicButton.addEventListener("click", toggleMusic);
+document.getElementById("randomButton").addEventListener("click", chooseRandomLetter);
 
-bgMusic.addEventListener("pause", () => {
-    musicPlaying = false;
-    musicButton.textContent = "♫ Putar musik";
+function nextDailyNote() {
+  let index;
+
+  do {
+    index = Math.floor(Math.random() * dailyMessages.length);
+  } while (dailyMessages.length > 1 && index === lastDailyIndex);
+
+  lastDailyIndex = index;
+
+  const messageElement = document.getElementById("dailyMessage");
+  messageElement.style.opacity = "0";
+
+  setTimeout(() => {
+    messageElement.textContent = dailyMessages[index];
+    messageElement.style.opacity = "1";
+  }, 180);
+}
+
+document.getElementById("anotherNote").addEventListener("click", nextDailyNote);
+
+function setDailyDate() {
+  const date = new Date();
+  const formatted = new Intl.DateTimeFormat("id-ID", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  }).format(date);
+
+  document.getElementById("dailyDate").textContent = formatted;
+}
+
+function makeHearts(amount = 12) {
+  const symbols = ["♡", "♥", "✧", "✿", "⋆"];
+
+  for (let i = 0; i < amount; i++) {
+    const heart = document.createElement("span");
+    heart.className = "floating-heart";
+    heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    heart.style.left = (10 + Math.random() * 80) + "vw";
+    heart.style.top = (50 + Math.random() * 35) + "vh";
+    heart.style.color = ["#d9a6b2", "#c4b0e3", "#e4c5a0", "#b6d4e4"][
+      Math.floor(Math.random() * 4)
+    ];
+    heart.style.animationDelay = (Math.random() * .45) + "s";
+
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 2400);
+  }
+}
+
+document.getElementById("loveButton").addEventListener("click", () => {
+  makeHearts(25);
+  showToast("Satu pengingat kecil: jangan lupa menyayangi dirimu juga ♡");
 });
 
-bgMusic.addEventListener("play", () => {
-    musicPlaying = true;
-    musicButton.textContent = "♫ Musik menyala";
+document.querySelectorAll("[data-gallery]").forEach(card => {
+  const openGallery = () => {
+    const letter = galleryLetters[Number(card.dataset.gallery)];
+    openLetter({
+      ...letter,
+      signature: "keep this little reminder close to your heart ♡"
+    }, card);
+  };
+
+  card.addEventListener("click", openGallery);
+
+  card.addEventListener("keydown", event => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openGallery();
+    }
+  });
 });
+
+/* MUSIK */
+const music = document.getElementById("backgroundMusic");
+const musicButton = document.getElementById("musicButton");
+
+music.volume = 0.35;
+
+musicButton.addEventListener("click", async () => {
+  if (music.paused) {
+    try {
+      await music.play();
+      musicButton.textContent = "♫ Pause music";
+      showToast("Musik menemani halaman kecil ini ♡");
+    } catch {
+      showToast("Belum bisa memutar musik. Periksa file musik.mp3 ya.");
+    }
+  } else {
+    music.pause();
+    musicButton.textContent = "♫ Play music";
+    showToast("Musik dijeda sebentar ♡");
+  }
+});
+
+/* SCROLL ANIMATION */
+let revealObserver;
+
+function observeReveals() {
+  if (!("IntersectionObserver" in window)) {
+    document.querySelectorAll(".reveal").forEach(element => {
+      element.classList.add("visible");
+    });
+    return;
+  }
+
+  if (revealObserver) revealObserver.disconnect();
+
+  revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.08
+  });
+
+  document.querySelectorAll(".reveal:not(.visible)").forEach(element => {
+    revealObserver.observe(element);
+  });
+}
+
+renderCards();
+setDailyDate();
+nextDailyNote();
+observeReveals();
 </script>
 
 </body>
