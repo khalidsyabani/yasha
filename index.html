@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#fff8f3">
-<title>A Little Note For You ♡</title>
+<title>A Little Note For CHYKNRSA ♡</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1057,6 +1057,27 @@ footer p {
     transition-duration: .01ms !important;
   }
 }
+
+
+/* PESAN KHUSUS + HALAMAN HADIAH */
+.special-section { padding: 0 0 105px; }
+.special-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; max-width:850px; margin:0 auto 30px; }
+.special-message { padding:30px 25px; border-radius:22px; text-align:center; background:linear-gradient(145deg,rgba(255,240,242,.94),rgba(255,255,255,.8)); border:1px solid #ecd8df; box-shadow:var(--shadow); }
+.special-message:nth-child(2) { background:linear-gradient(145deg,rgba(233,241,251,.94),rgba(255,255,255,.82)); }
+.special-message .special-icon { font-size:30px; margin-bottom:13px; }
+.special-message p { font-family:'Playfair Display',serif; font-size:clamp(17px,2.5vw,22px); line-height:1.8; color:#806a73; }
+.gift-action { text-align:center; }
+.gift-action p { color:#9b858b; font-size:12px; margin:0 0 18px; line-height:1.8; }
+#giftPage { display:none; min-height:100vh; padding:28px 20px; align-items:center; justify-content:center; text-align:center; background:radial-gradient(ellipse at 15% 15%,rgba(243,212,213,.65),transparent 35%),radial-gradient(ellipse at 85% 80%,rgba(220,236,246,.8),transparent 35%),var(--cream); }
+#giftPage .gift-paper { width:min(620px,100%); padding:clamp(30px,7vw,58px); border:1px solid #ead5dc; border-radius:30px; background:rgba(255,255,255,.76); box-shadow:0 25px 80px rgba(118,85,91,.13); animation:modalIn .5s ease both; }
+.gift-sparkle { font-size:42px; margin-bottom:18px; animation:float 4s ease-in-out infinite; }
+#giftPage h1 { font-size:clamp(36px,8vw,60px); line-height:1.2; color:#c58e9c; margin:14px 0 20px; }
+#giftPage p { color:#8f7d84; font-size:14px; line-height:2; }
+#giftPage .gift-back { margin-top:28px; border:1px solid #ead5d9; color:#a37c87; background:#fff4f6; border-radius:30px; padding:13px 20px; cursor:pointer; }
+body.gift-open nav, body.gift-open main, body.gift-open footer { display:none; }
+body.gift-open #giftPage { display:flex; }
+@media(max-width:600px){ .special-grid { grid-template-columns:1fr; } }
+
 </style>
 </head>
 
@@ -1090,7 +1111,7 @@ footer p {
   <div class="hero-content">
     <div class="hero-label">A tiny corner of happiness ♡</div>
 
-    <h1>A little note,<br><em>just for you.</em></h1>
+    <h1>A little note,<br><em>just for CHYKNRSA.</em></h1>
 
     <p class="hero-subtitle">For the days you need a little reminder.</p>
 
@@ -1364,7 +1385,45 @@ footer p {
     </button>
   </div>
 </section>
+
+
+<section class="special-section" id="specialMessages">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="eyebrow">A little message for you</span>
+      <h2>Just a few things <em>to remember.</em></h2>
+      <p>Dua pesan kecil yang semoga bisa kamu simpan baik-baik. ♡</p>
+    </div>
+    <div class="special-grid">
+      <article class="special-message reveal">
+        <div class="special-icon">🌷</div>
+        <p>Semoga kamu bahagia ya, di frame manapun itu.</p>
+      </article>
+      <article class="special-message reveal">
+        <div class="special-icon">🤍</div>
+        <p>Jaga aurat kamu ya, di manapun dan kapanpun.</p>
+      </article>
+    </div>
+    <div class="gift-action reveal">
+      <p>Masih ada satu hal kecil yang menunggumu di sini.</p>
+      <button class="btn-primary" id="takeGiftButton" type="button">🎁 Ambil Hadiah</button>
+    </div>
+  </div>
+</section>
+
 </main>
+
+
+
+<section id="giftPage" aria-hidden="true">
+  <div class="gift-paper">
+    <div class="gift-sparkle">🎁 ✨ ♡</div>
+    <span class="eyebrow">A little gift for you</span>
+    <h1>Bahagia selalu ya Yash.</h1>
+    <p>Semoga di mana pun kamu berada, selalu ada hal baik yang menemani langkahmu. Jaga diri baik-baik, tetap jadi pribadi yang baik, dan semoga Allah selalu menjaga kamu. ♡</p>
+    <button class="gift-back" id="giftBackButton" type="button">← Kembali ke pesan</button>
+  </div>
+</section>
 
 <footer>
   <div class="footer-heart">♡</div>
@@ -2032,6 +2091,25 @@ function observeReveals() {
     revealObserver.observe(element);
   });
 }
+
+
+
+/* HADIAH: tampil sebagai halaman tersendiri */
+const takeGiftButton = document.getElementById("takeGiftButton");
+const giftBackButton = document.getElementById("giftBackButton");
+const giftPage = document.getElementById("giftPage");
+
+takeGiftButton.addEventListener("click", () => {
+  document.body.classList.add("gift-open");
+  giftPage.setAttribute("aria-hidden", "false");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+giftBackButton.addEventListener("click", () => {
+  document.body.classList.remove("gift-open");
+  giftPage.setAttribute("aria-hidden", "true");
+  document.getElementById("specialMessages").scrollIntoView({ behavior: "smooth" });
+});
 
 renderCards();
 setDailyDate();
